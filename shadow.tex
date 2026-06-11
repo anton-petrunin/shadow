@@ -1,0 +1,131 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{paper-en}
+\usepackage{hyperref}
+
+\def\thetitle{Shadow isoperimetry}
+\def\theauthors{}
+
+\hypersetup{colorlinks=true,
+citecolor=black,
+linkcolor=black,
+anchorcolor=black,
+filecolor=black,
+menucolor=black,
+urlcolor=black,
+pdftitle={\thetitle},
+pdfauthor={\theauthors}
+}
+\begin{document}
+
+\title{\thetitle}
+\author{\theauthors}
+\date{}
+\maketitle
+
+\begin{abstract}
+We outline a proof of a version of the isoperimetric inequality in terms of Favard area.
+\end{abstract}
+
+\section{Introduction}
+
+Given a compact subset $K\subset \RR^n$ let us denote by $a(K)$ the Favard area; that is, the average of the areas (where area means $(n-1)$-dimensional Hausdorff measure) of orthogonal projections of $K$ to hyperplanes.
+Further, let us denote by $\vol$ the $n$-dimensional Hausdorff measure.
+
+\begin{thm}{Theorem}\label{thm:main}
+Let $K\subset \RR^n$ be a compact subset and let $B\subset \RR^n$ be a ball.
+Then
+\[a(K)= a(B)\quad\Rightarrow\quad \vol K\le \vol B.\]
+Moreover, if equality holds, then $K$ is congruent to $B$.
+\end{thm}
+
+By Cauchy's projection formula, we have $a(K)\le \tfrac{\omega_{n-1}}{n\cdot\omega_n}\cdot \area (\partial K)$.
+Therefore our theorem implies the standard isoperimetric inequality.
+
+In the proof we adapt the idea of Frederick Almgren, \cite[pp. 454--455]{almgren-1986}.
+
+\section{Plan}
+
+Given a compact set $K$, consider the ball $B$ such that $a(K)=a(B)$.
+Let us denote by $\kappa=\kappa(K)$ the normal curvature of $\partial B$,
+so $\tfrac1\kappa$ is the radius of $B$ and
+\[\frac{\omega_{n-1}}{\kappa^{n-1}}=a(K)=a(B),\quad \frac{\omega_{n}}{\kappa^{n}}=\vol B.\]
+
+\begin{thm}{Lemma}\label{lem:support}
+Let $K$ be a compact set in $\RR^n$.
+Given $\eps>0$, there is a smooth convex body $C$ with smooth boundary such that $C\supset K$,
+$\partial C\cap K$ contains a single point, say $p$,
+and the Gauss curvature of $\partial C$ at $p$ is at least $(\kappa(K)-\eps)^{n-1}$;
+in particular, the mean curvature of $\partial C$ at $p$ is at least $(n-1)\cdot (\kappa(K)-\eps)$.
+\end{thm}
+
+\parit{Sketch.}
+Let us denote by $K_s$ the closed $s$-neighborhood of $K$.
+Note that it is sufficient to solve the problem for $K_s$ with sufficiently small $s>0$,
+once it is done, an equidistant surface solves the original problem.
+
+Good thing about $K_s$ is that the convex hull $\conv K_s$ has $C^{1,1}$-smooth boundary.
+So shape operator $\Shape$ and the Gauss curvature $G=\det(\Shape)$ are defined almost everywhere on $\partial(\conv K_s)$.
+
+Define the \emph{contact boundary} of $K_s$ as
+\[\cont K_s=K_s\cap\partial(\conv K_s).\]
+Note that the spherical image of $\cont K_s$ is the whole sphere.
+It follows that
+\[\int\limits_{x\in \cont K_s}G(x)=\area \SSS^{n-1}=n\cdot\omega_n.\]
+Therefore,
+\[G(x)\ge \frac{\area \SSS^{n-1}}{\area (\cont K_s)}-\eps/3\]
+for $x$ in a set of positive measure of $\cont K_s$.
+
+By Steiner's formula, $\area (\cont K_s)$ is close to $\area (\cont K)$ for small $s>0$.
+Clearly,
+\[a(\cont K_s)\le a(K_s).\]
+Further, since $\cont K_s\subset \partial (\conv K_s)$ we have
+\[\area (\cont K_s)\le \frac{\area \SSS^{n-1}}{\omega_{n-1}}\cdot a(\cont K_s);\]
+the constant $\tfrac{\area \SSS^{n-1}}{\omega_{n-1}}$ here is the optimal constant (so we have equality if $\cont K_s$ is a closed convex hypersurface).
+
+Combining the last three inequalities we get a point $x\in \cont K_s$ with well-defined shape operator and Gauss curvature $(\kappa(K)-\eps/2)^{n-1}$.
+Let us take a smooth hypersurface $H$ with slightly smaller shape operator at $p$.
+Let $H'$ be the equidistant hypersurface that touches $K$; we can assume that $H'$ is still convex and smooth at this point, say $p$.
+It remains to take a small neighborhood of $\conv K$, chop it by $H'$ and smooth the resulting body without changing it near $p$ and keeping it convex.
+\qeds
+
+
+\begin{thm}{Lemma}\label{lem:variation}
+Let $C$, $K$, and $p$ as in the previous lemma, and let
+\[K_t=\set{x\in K}{\dist_{\partial C}x\ge t}.\]
+Then
+\[a(K)-a(K_t)\ge \frac{\omega_{n-1}}{n\omega_n}\cdot(H+o_t(1))\cdot (\vol K-\vol K_t),\]
+where $H$ denotes the mean curvature of $\partial C$ at $p$.
+\end{thm}
+
+\parit{Sketch.}
+Let $x$ be a point in a small neighborhood of $p$.
+Denote by $\bar x\in\partial C$ the closest point to $x$,
+let $\nu(x)$ be the outer unit normal at $\bar x$ to $C$ and $r(x)\z=|x-\bar x|$.
+The pair $(\nu(x),r(x))$ completely describes $x$ and it gives a smooth parametrization of a neighborhood of $p$ by an open subset in $\SSS^{n-1}\times \RR$.
+These local coordinates have jacobian $1/G(p)$ at $p$, and since everything is smooth,
+its jacobian at $x$ is $1/G(p)+O(|x-p|)$.
+
+It remains to write both sides using these coordinates (but it takes some effort).
+\qeds
+
+\parit{Proof of \ref{thm:main}.}
+Assume $K$ is a counterexample;
+that is, we can choose $\delta>0$ such that
+\[s_\delta(K)\df\vol K- (1+\delta)\cdot \vol B>0,\]
+where $B$ is the ball such that $a(K)= a(B)$.
+
+Without loss of generality, we can assume that nonempty intersection of $K$ with any open set has positive volume.
+
+Applying \ref{lem:variation} to $C$ and $p$ are provided by \ref{lem:support}, we get a compact set $K'\subset K$ such that
+\[\vol K-\vol K'< \frac{\omega_{n-1}}{n\cdot\omega_n}\cdot((n-1)\cdot\kappa(K)-\eps)\cdot (a(K)-a(K')).\]
+For appropriate choice of $\eps>0$, we get $s_\delta(K')>s_\delta(K)$.
+Applying Zorn's lemma, we arrive at a contradiction.
+\qeds
+
+{\sloppy
+\def\emph{\textit}
+\printbibliography[heading=bibintoc]
+\fussy
+}
+
+\end{document}
