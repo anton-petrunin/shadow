@@ -61,7 +61,7 @@ in particular, the mean curvature of $\partial C$ at $p$ is at least $(n-1)\cdot
 \parit{Sketch.}
 Let us denote by $K_s$ the closed $s$-neighborhood of $K$.
 Note that it is sufficient to solve the problem for $K_s$ with sufficiently small $s>0$,
-once it is done, an equidistant surface solves the original problem.
+once this is done, an equidistant surface solves the original problem.
 
 Good thing about $K_s$ is that the convex hull $\conv K_s$ has $C^{1,1}$-smooth boundary.
 So shape operator $\Shape$ and the Gauss curvature $G=\det(\Shape)$ are defined almost everywhere on $\partial(\conv K_s)$.
@@ -90,23 +90,52 @@ It remains to take a small neighborhood of $\conv K$, chop it by $H'$ and smooth
 
 
 \begin{thm}{Lemma}\label{lem:variation}
-Let $C$, $K$, and $p$ as in the previous lemma, and let
+Let $C$, $K$, and $p$ be as in the previous lemma, and let
 \[K_t=\set{x\in K}{\dist_{\partial C}x\ge t}.\]
 Then
-\[a(K)-a(K_t)\ge \frac{\omega_{n-1}}{n\cdot \omega_n}\cdot(H+o_t(1))\cdot (\vol K-\vol K_t),\]
+\[(1+o_t(1))\cdot(\vol K-\vol K_t)\le \frac{n\cdot \omega_n}{\omega_{n-1}\cdot H}\cdot(a(K)-a(K_t)),\]
 where $H$ denotes the mean curvature of $\partial C$ at $p$.
 \end{thm}
 
 \parit{Sketch.}
-Let $x$ be a point in a small neighborhood of $p$.
-Denote by $\bar x\in\partial C$ the closest point to $x$,
-let $\nu(x)$ be the outer unit normal at $\bar x$ to $C$ and $r(x)$ be the signed distance from $x$ to $\partial C$;
-that is, $r(x)=|x-\bar x|$ if $x\in C$ and $r(x)=-|x-\bar x|$ otherwise.
-The pair $(\nu(x),r(x))$ completely describes $x$ and it gives a smooth parametrization of a neighborhood of $p$ by an open subset in $\SSS^{n-1}\times \RR$.
-These local coordinates have jacobian $1/G(p)$ at $p$, and since everything is smooth,
-its jacobian at $x$ is $1/G(p)+O(|x-p|)$.
+Let $u\in \SSS^{n-1}$ and $r\in \RR$.
+Consider the point $\bar x(u)\in  \partial C$ with outer normal vector $u$.
+Then the map
+\[x\:(u,r)\mapsto\bar x(u)-r\cdot u\]
+gives a smooth parametrization of a neighborhood of $\partial C$.
+Denote by $u_0$ the unit normal vector at $p$, so $p=x(u_0,0)$.
 
-It remains to write both sides as integrals in these coordinates (but it takes some effort).
+Denote by $\mathbf 1_K$ the characteristic function of $K$ and let $\phi(u,r)=\mathbf 1_K\circ x(u,r)$.
+Then
+\begin{align*}
+\vol K-\vol K_t&=\int\limits_{\substack{u\in \SSS^{n-1}\\r\in [0,t]}} \phi(u,r)\cdot J(u,r)=
+\\
+&=\frac{n\cdot \omega_n\cdot (1+o_t(1))}{G(p)}\cdot \oint\limits_{\substack{u\in \SSS^{n-1}\\r\in [0,t]}} \phi(u,r),
+\end{align*}
+where $\oint$ denotes the average $u$ and $J(u,r)$ is the Jacobian of $x$ at $(u,r)$.
+The last equality follows since $J(u_0,0)=1/G(p)$ and if $r\le t$ for small $t>0$, then $\phi(u,r)\ne 0$ only if $u\approx u_0$;
+we also use that $n\cdot \omega_n=\area\SSS^{n-1}$.
+
+Choose a unit vector $w$; denote by $L$ and $L_t$ the projections of $K$ and $K_t$ to $w^\perp$.
+The same calculation gives
+\[\area L-\area L_t\ge\int\limits_{\substack{u\in \SSS^{n-2}\\r\in [0,t]}} \phi(u,r)\cdot J_w(u,r).\]
+where
+$\SSS^{n-2}=\SSS^{n-1}\cap w^\perp$ and
+$J_w(u,r)$ denotes the Jacobian of projection of $x|_{\SSS^{n-2}\times \RR}$ to $w^\perp$ at $(u,r)$.
+
+Again, if $t$ is small, $\phi(u,r)\ne 0$ only if $u\approx u_0$, and it implies that
+$w$ is almost perpendicular to $u_0$, so we can assume it further.
+Denote by $w'\in \SSS^{n-1}\cap u_0^\perp$ the closest vector to $w$.
+If $\phi(u,r)\ne 0$ and $0\le r\le t$, then
+\begin{align*}
+J_w(u,r)&=(1+o_t(1))\cdot J_{w'}(u_0,0)=
+\\
+&=(1+o_t(1))\cdot \frac{k(w')}{G(p)},
+\end{align*}
+where $k(w')$ denotes normal curvature of $\partial C$ in the direction $w'$ at $p$.
+Note that $\tfrac{1}{n-1}\cdot H(p)$ is the average of $k(w')$ for $w'\perp u_0$.
+Therefore, taking the average, we get
+\[a(K)-a(K_t)\ge \frac {H(p)\cdot \omega_{n-1}\cdot(1+o_t(1))}{ G(p)} \oint\limits_{\substack{u\in \SSS^{n-1}\\r\in [0,t]}} \phi(u,r).\]
 \qeds
 
 \parit{Proof of \ref{thm:main}.}
