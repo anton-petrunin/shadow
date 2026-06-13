@@ -23,14 +23,16 @@ pdfauthor={\theauthors}
 \maketitle
 
 \begin{abstract}
-We outline a proof of a version of the isoperimetric inequality in terms of Favard area.
+We outline a proof of the isoperimetric inequality for Favard area.
 \end{abstract}
 
 \section{Introduction}
 
-Given a compact subset $K\subset \RR^n$ let us denote by $a(K)$ the Favard area; that is, the average of the areas (where area means $(n-1)$-dimensional Lebesgue measure) of orthogonal projections of $K$ to hyperplanes. The dependence of the projection on the hyperplane in this case has closed graph, which by Fubini's theorem shows the integrability of the area of the projection as a function of the hyperplane.
 
-Further, let us denote by $\vol$ the $n$-dimensional Lebesgue measure in $\RR^n$.
+Given a compact subset $K\subset \RR^n$ let us denote by $a(K)$ its \emph{Favard area}; that is, the average of the areas of orthogonal projections of $K$ to hyperplanes.
+Area and volume will mean the Lebesgue measures of dimension $n-1$ and $n$.
+
+Since the dependence of the projection on the hyperplane in this case has closed graph, Fubini's theorem implies the integrability of the area of the projection as a function of the hyperplane, so the Favard area is well-defined.
 
 \begin{thm}{Theorem}\label{thm:main}
 Let $K\subset \RR^n$ be a compact subset and let $B\subset \RR^n$ be a ball.
@@ -38,13 +40,16 @@ Then
 \[
 a(K)= a(B)\quad\Rightarrow\quad \vol K\le \vol B.
 \]
-Moreover, if equality holds, then $K$ contains a congruent copy $B$ and the remaining part has vanishing volume.
-\textbf{The description of the equiality case has no proof and may be removed.}
+Moreover, if equality holds, then $K$ contains a congruent copy $B$ and the remaining part has vanishing volume.%
+\footnote{Со случаем равенства надо разобраться, иначе странно.}
 \end{thm}
 
-By Cauchy's projection formula, we have $a(K)\le \tfrac{\omega_{n-1}}{n\cdot\omega_n}\cdot \area (\partial K)$.
-Therefore, our theorem implies the standard isoperimetric inequality.
-\textbf{It is unlikely that Cauchy worked with the Hausdorff measure and proved anything like this, but fortunately this remark is not used below.}
+By Cauchy's projection formula, this theorem gives a more exact version of the standard isoperimetric inequality.%
+\footnote{Это следует из вот этих неравенств:
+\[2\cdot a(\partial K)\le \mathcal{I}^{n-1}_1(\partial K)\le \mathcal{H}^{n-1}(\partial K),\]
+здесь $\mathcal{I}^{n-1}_1$ --- integralgeometric measure.
+Второе неравенство доказывается разбиением множества конечной меры на спрямляемое и полностью неспрямляемое \cite[15.6]{mattila} + \cite[3.2.26]{federer}.}
+
 
 In the proof we adapt the idea of Frederick Almgren, \cite[pp. 454--455]{almgren-1986}.
 
@@ -54,24 +59,25 @@ Given a compact set $K$, consider the ball $B$ such that $a(K)=a(B)$. Let us den
 \[
 \frac{\omega_{n-1}}{\kappa^{n-1}}=a(K)=a(B),\quad \frac{\omega_{n}}{\kappa^{n}}=\vol B,
 \]
-where $\omega_n=\frac{\pi^{n/2}}{(n/2)!}$ is the volume of the unit ball in $\RR^n$.
+where $\omega_n$ is the volume of the unit ball in $\RR^n$.
 
 \begin{thm}{Lemma}\label{lem:support}
 Let $K$ be a compact set in $\RR^n$.
 Given $\eps>0$, there is a strictly convex body $C$ with smooth boundary such that $C\supset K$,
 $\partial C\cap K$ contains a single point, say $p$,
-and the Gauss curvature of $\partial C$ at $p$ is at least $(\kappa(K)-\eps)^{n-1}$;
-from the arithmetic mean---geometric mean inequality, the mean curvature of $\partial C$ at $p$ is at least $(n-1)\cdot (\kappa(K)-\eps)$.
+and the Gauss and mean curvatures of $\partial C$ at $p$ are at least $(\kappa(K)-\eps)^{n-1}$ and $(n-1)\cdot (\kappa(K)-\eps)$, respectively.
 \end{thm}
 
 \begin{proof}
-Let us denote by $K_s$ the closed $s$-neighborhood of $K$. Good thing about $K_s$ is that the convex hull $\conv K_s$ has $C^1$-smooth boundary and its second derivatives exist almost everywhere and are bounded. So the shape operator $\Shape$ and the Gauss curvature $G=\det(\Shape)$ are defined almost everywhere on $\partial(\conv K_s)$. Note also that any hyperplane projection of $K_s$ is the closed $s$-neighborhood of the projection of $K$ to the same hyperplane, which implies continuous dependence of the area of the projection on $s\ge 0$.
+Let us denote by $K_s$ the closed $s$-neighborhood of $K$. Good thing about $K_s$ is that the convex hull $\conv K_s$ has $C^1$-smooth boundary and its second derivatives exist almost everywhere and are bounded.
+So the shape operator ($\Shape$), the Gauss curvature $G=\det(\Shape)$, and mean curvature $H=\tr(\Shape)$ are defined almost everywhere on $\partial(\conv K_s)$. Note also that any hyperplane projection of $K_s$ is the closed $s$-neighborhood of the projection of $K$ to the same hyperplane, which implies continuous dependence of the area of the projection on $s\ge 0$.
 
 Define the \emph{contact boundary} of $K_s$ as
 \[
 \cont K_s=K_s\cap\partial(\conv K_s).
 \]
-Since every linear function attains its maximum on $\conv K_s$ in a point of $K_s$, the normals of $\cont K_s$ constitute the whole sphere. Hence
+Since every linear function attains its maximum on $\conv K_s$ in a point of $K_s$, the normals of $\cont K_s$ constitute the whole sphere.
+Hence
 \[
 \int\limits_{x\in \cont K_s}G(x)=\area \SSS^{n-1}=n\cdot\omega_n.
 \]
@@ -81,23 +87,30 @@ G(x)\ge \frac{\area \SSS^{n-1}}{\area (\cont K_s)}-\delta = \frac{n\omega_n}{\ar
 \]
 holds for $x$ in a set of positive measure of $\cont K_s$.
 
-By Steiner's formula, $\area (\cont K_s)$ is close to $\area (\cont K)$ for small $s>0$. \textbf{The latter claim is not clear but fortunately not used below.}
-
 From the inclusion $\cont K_s\subseteq K_s$ it follows that
 \[
 a(\cont K_s)\le a(K_s).
 \]
-Further, since $\cont K_s\subset \partial (\conv K_s)$ we have from the Crofton formula
+Further, since $\cont K_s\subset \partial (\conv K_s)$, the Crofton formula implies
 \[
-\area (\cont K_s)\le \frac{n\omega_n}{\omega_{n-1}}\cdot a(\cont K_s);
+\area (\cont K_s)\le \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K_s);
 \]
-the constant $\tfrac{n\omega_n}{\omega_{n-1}}$ here is the optimal constant (so we have equality if $\cont K_s$ is a closed convex hypersurface).
+the constant $\tfrac{n\cdot\omega_n}{\omega_{n-1}}$ here is the optimal constant (so we have equality if $\cont K_s$ is a closed convex hypersurface).
 
 Combining the last three inequalities and the definition of $\kappa(K_s)$ and its continuity in $s$ we get a point $x\in \cont K_s$ with well-defined shape operator and Gauss curvature at least $(\kappa(K_s)-\eps)^{n-1}$.
 
-Let us take a smooth hypersurface $H_s$ with slightly smaller (in terms of positive definite difference) shape operator at $x$ compared to that of $K_s$ that touches $K_s$ as a single point $x$. Note that all the curvatures of $\partial \conv K_s$ were at most $1/s$, so all the curvatures of $H_s$ may be assumed strictly smaller than $1/s$.
+Let us take a smooth hypersurface $W_s$ with slightly smaller (with positive definite difference) shape operator at $x$ compared to that of $\partial(\conv K_s)$ that touches $K_s$ as a single point $x$.
+Note that all the curvatures of $\partial \conv K_s$ were at most $1/s$, so all the curvatures of $W_s$ may be assumed strictly smaller than $1/s$.
 
-Let $H$ be the $s$-equidistant hypersurface of $H_s$ that touches $K$ in the single corresponding point $p$. From the above observation on curvatures it follows that $H$ is still convex and smooth at $p$. It remains to take a small neighborhood of $\conv K$, chop it by $H$ and smooth the resulting body at a neighborhood of $H\cap \partial\conv K$ without changing it near $p$ and keeping it convex. The hypersurface $H$ was already stricly convex, so $C$ is strictly convex in a neighborhood of $p$. It may be made strictly convex by smoothening its support function outside of the corresponding neighborhood of the normal at $p$.
+
+Let $W$ be the $s$-equidistant hypersurface of $W_s$.
+Note that $W$ touches $K$ in a single point, say $p$, which is the nearest-point projection of $x$ to $K$.
+From the above observation on curvatures it follows that $W$ is still convex and smooth at $p$.
+It remains to take a small smooth closed strictly convex neighborhood $N$ of $\conv K$, chop it by $W$ and smooth the resulting body near the corner $W\cap \partial N$ while keeping it strictly convex.
+The hypersurface $W$ was already strictly convex, so $C$ is strictly convex in a neighborhood of $p$.
+It may be made strictly convex by smoothing its support function outside of the corresponding neighborhood of the normal at $p$.
+
+The bound on the mean curvature follows from the inequality of arithmetic and geometric means.
 \end{proof}
 
 
@@ -108,13 +121,13 @@ K_t=\set{x\in K}{\dist(\partial C, x)\ge t}.
 \]
 Then
 \[
-(1+o_t(1))\cdot(\vol K-\vol K_t)\le \frac{n\cdot \omega_n}{\omega_{n-1}\cdot H}\cdot(a(K)-a(K_t)),
+(1+o_t(1))\cdot(\vol K-\vol K_t)\le \frac{n\cdot \omega_n}{\omega_{n-1}\cdot H(p)}\cdot(a(K)-a(K_t)),
 \]
-where $H$ denotes the mean curvature of $\partial C$ at $p$.
+where $H(p)$ denotes the mean curvature of $\partial C$ at $p$.
 \end{thm}
 
 \begin{proof}
-Let $u\in \SSS^{n-1}$ and $r\in \RR_+$. Consider the unique point $\bar x(u)\in \partial C$ with outer normal vector $u$.
+Let $u\in \SSS^{n-1}$ and $r\in \RR$. Consider the unique point $\bar x(u)\in \partial C$ with outer normal vector $u$.
 Then the map
 \[
 \xi\:(u,r)\mapsto\bar x(u)-r\cdot u
@@ -125,24 +138,34 @@ Denote by $u_0$ the unit normal vector at $p$, so $p=\xi(u_0,0)$.
 Denote by $\mathbf 1_K$ the characteristic function of $K$ and let $\phi(u,r)=\mathbf 1_K\circ \xi(u,r)$.
 Then
 \begin{align*}
-\vol K-\vol K_t&=\int\limits_{\substack{u\in \SSS^{n-1}\\r\in [0,t]}} \phi(u,r)\cdot J(u,r)=
+\vol K-\vol K_t
+=
+&\int\limits_{u\in \SSS^{n-1}}
+\int\limits_{r\in [0,t]} \phi(u,r)\cdot J(u,r)=
 \\
-&=\frac{n\cdot \omega_n\cdot (1+o_t(1))}{G(p)}\cdot \oint\limits_{\substack{u\in \SSS^{n-1}\\r\in [0,t]}} \phi(u,r),
+=
+\frac{n\cdot \omega_n\cdot (1+o_t(1))}{G(p)}
+\cdot
+&\oint\limits_{u\in \SSS^{n-1}}
+\int\limits_{r\in [0,t]} \phi(u,r),
 \end{align*}
 where $\oint$ denotes the average along the sphere and $J(u,r)$ is the Jacobian of $\xi$ at $(u,r)$.
-The last equality follows since $J(u_0,0)=1/G(p)$ and if $r\le t$ for small $t>0$, then $\phi(u,r)\ne 0$ only if $u$ is in an arbitrarily small neighborhood of $u_0$, so we may approximate the Jacobian by its value at $\xi^{-1}(p)$.
+The last equality follows since $J(u_0,0)=1/G(p)$ and if $r\le t$ for small $t>0$, then $\phi(u,r)\ne 0$ only if $u$ is in a sufficiently small neighborhood of $u_0$, so we may approximate the Jacobian by its value at $(u_0,0)=\xi^{-1}(p)$.
 
-Let us turn to hyperplane projections. Choose a unit vector $w$; denote by $L$ and $L_t$ the projections of $K$ and $K_t$ to $w^\perp$. The $t$-heighborhood of $L_t$ is contained in the projection of $C$, so $L_t$ is at distance at least $t$ from the boundary of the projection of $C$. This allows to estimate
+Let us turn to hyperplane projections.
+Choose a unit vector $w$; denote by $L$ and $L_t$ the projections of $K$ and $K_t$ to $w^\perp$.
+The $t$-neighborhood of $L_t$ is contained in the projection of $C$, so $L_t$ is at distance at least $t$ from the boundary of the projection of $C$.
+This allows us to estimate
 \[
 \area L-\area L_t\ge\int\limits_{\substack{u\in \SSS^{n-2}\\r\in [0,t]}} \phi(u,r)\cdot J_w(u,r).
 \]
 where $\SSS^{n-2}=\SSS^{n-1}\cap w^\perp$ and
-$J_w(u,r)$ denotes the Jacobian of projection of $x|_{\SSS^{n-2}\times \RR}$ to $w^\perp$ at $(u,r)$. This estimate holds true since the points with $\phi(u,r)=1$ are projected injectively to $L$ with the Jacobian $J_w$ and do not get into $L_t$. 
+$J_w(u,r)$ denotes the Jacobian at $(u,r)$ of the projection  to $w^\perp$ of the restriction $\xi|_{\SSS^{n-2}\times \RR}$. This estimate holds true since the points with $\phi(u,r)=1$ are projected injectively to $L$ with the Jacobian $J_w$ and do not get into $L_t$.
 
-If $t$ is sufficiently small, $\phi(u,r)\ne 0$ only if $u$ is in arbitrarily small neighborhood of $u_0$. This implies that
-$w$ is may be considered almost perpendicular to $u_0$, which we assume further.
+If $t$ is sufficiently small, then $\phi(u,r)\ne 0$ only if $u$ lies in a sufficiently small neighborhood of $u_0$.
+This implies that $w$ may be considered almost perpendicular to $u_0$, which we assume further.
 
-Denote by $w'\in \SSS^{n-1}\cap u_0^\perp$ the closest to $w$ vector in $\SSS^{n-1}\cap u_0^\perp$.
+Denote by $w'$ the vector closest to $w$ in $\SSS^{n-1}\cap u_0^\perp$.
 If $\phi(u,r)\ne 0$ and $0\le r\le t$, then from the uniform continuity of $J_w$
 \[
 J_w(u,r)=(1+o_t(1))\cdot J_{w'}(u_0,0)=(1+o_t(1))\cdot \frac{k(w')}{G(p)},
@@ -154,40 +177,44 @@ Therefore, taking the average, we get
 \[
 a(K)-a(K_t)\ge \frac {H(p)\cdot \omega_{n-1}\cdot(1+o_t(1))}{ G(p)} \oint\limits_{\substack{u\in \SSS^{n-1}\\r\in [0,t]}} \phi(u,r).
 \]
-Of course, here we mean that averaging over the whole sphere is the same as averaging over a variable point in a subsphere and then averaging over subspheres.
+We used that averaging over the whole sphere is the same as averaging over a variable point in a subsphere and then averaging over subspheres.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}.]
-Assume that $K$ is a counterexample;
-that is, we can choose $\delta>0$ such that
+Assume that $K$ is a counterexample.
+Then, we can choose $\delta>0$ such that
 \[
-s_\delta(K) \df \vol K - (1+\delta) c_n a(K)^{n/(n-1)} > 0,
+s_\delta(K) \df \vol K - (1+\delta)\cdot \vol B > 0,
 \]
-where the constant $c_n=\frac{\omega_n}{\omega_{n-1}^{n/(n-1)}}$ is chosen so that $s_0(B) = 0$ for any ball $B$.
+where $B$ denotes the ball such that $a(K)=a(B)$.
 
-Remove from $K$ the set of measure zero of its points of zero density and then take the closure. This does not change $\vol K$, possibly decreases $a(K)$ and ensures that $K$ is still a compact set and every intersection of $K$ with any open set has positive volume. This means that the volume cut from $K$ by the procedure of Lemma~\ref{lem:variation} will be positive.
+Remove from $K$ the set of measure zero of its points of zero density and then pass to the closure.
+After this procedure, $K$ remains compact, its volume did not change while Favard area $a(K)$ may decrease.
+Moreover, now nonempty intersections of $K$ with open sets have positive volume.
+This ensures that the volume cut from $K$ by the procedure of Lemma~\ref{lem:variation} will be positive.
 
 Applying Lemma~\ref{lem:variation} to $C$ and $p$ provided by Lemma~\ref{lem:support}, we get a compact set $K'\subset K$ such that
-\[
-\vol K-\vol K'< \left( \frac{n\omega_n}{(n-1)\omega_{n-1}\kappa(K)}+\eps\right)\cdot (a(K)-a(K')).
-\]
-Noting that $\kappa(K)=\tfrac{\omega_{n-1}^{1/(n-1)}}{a(K)^{1/(n-1)}}$, we transform this into
-\[
-\vol K-\vol K'< \left( \frac{n\omega_n a(K)^{1/(n-1)}}{(n-1)\omega_{n-1}^{n/(n-1)}}+\eps\right)\cdot (a(K)-a(K')).
-\]
-and applying the definition of $c_n$:
-\[
-\vol K-\vol K'< \left( c_n\frac{n}{(n-1)}a(K)^{1/(n-1)}+\eps \right)\cdot (a(K)-a(K')).
-\]
-Considering the derivatives of $s_\delta(K)$ as a function of $\vol$ and $a$ one observes that 
-\[
-\frac{\partial s_\delta(K)}{\partial\vol} = 1,\quad \frac{\partial s_\delta(K)}{\partial a(K)} = (1+\delta)c_n\frac{n}{n-1} a(K)^{1/(n-1)}
-\]
-and therefore, for an appropriate choice of $\eps>0$, we get $s_\delta(K')>s_\delta(K)$ for the chopped body $K'$.
+\[s_\delta(K')>s_\delta(K).\]
 
-Now consider an inclusion chain $\mathcal Z$ of convex compact subsets of the original $K$ satisfying $s_\delta(L)\ge s_0$ for all $L\in\mathcal Z$, where $s_0=s_\delta(K) > 0$. The intersection of the chain is a compact set $M$. By the outer regularity of the Lebesgue measure there exists an open $U\supseteq M$ whose volume is arbitrarily close to $\vol M$. Since the intersection of the sets in the chain $\mathcal Z$ with the complement of $U$ is empty, then from compactness the intersection of some $L\in\mathcal Z$ with the complement of $U$ is empty. Hence $\vol L$ for $L\in\mathcal Z$ is at most $\vol U$ and can be made arbitrarily close to $\vol M$. It is also clear that $a(L)\ge a(M)$ for any $L\in\mathcal Z$. Hence $s_\delta(M)$ must be at least $s_0$. 
+%\[\vol K-\vol K'< \left( \frac{n\omega_n}{(n-1)\omega_{n-1}\kappa(K)}+\eps\right)\cdot (a(K)-a(K')).\]
+%Noting that $\kappa(K)=\tfrac{\omega_{n-1}^{1/(n-1)}}{a(K)^{1/(n-1)}}$, we transform this into
+%\[\vol K-\vol K'< \left( \frac{n\omega_n a(K)^{1/(n-1)}}{(n-1)\omega_{n-1}^{n/(n-1)}}+\eps\right)\cdot (a(K)-a(K')).\]
+%and applying the definition of $c_n$:
+%\[\vol K-\vol K'< \left( c_n\frac{n}{(n-1)}a(K)^{1/(n-1)}+\eps \right)\cdot (a(K)-a(K')).\]
+%Considering the derivatives of $s_\delta(K)$ as a function of $\vol$ and $a$ one observes that
+%\[\frac{\partial s_\delta(K)}{\partial\vol} = 1,\quad \frac{\partial s_\delta(K)}{\partial a(K)} = (1+\delta)c_n\frac{n}{n-1} a(K)^{1/(n-1)}\]
+%and therefore, for an appropriate choice of $\eps>0$, we get $s_\delta(K')>s_\delta(K)$ for the chopped body $K'$.
 
-Applying Zorn's lemma to the compact subsets of $K$ satisfying $s_\delta(L)\ge s_0$, we must have an inclusion minimal such set $M$. But the above argument applied to $M$ in place of $K$ contradicts the minimality.
+Now consider an inclusion chain $\mathcal Z$ of compact subsets $L\subset K$ satisfying $s_\delta(L)\ge s_0$ for all $L\in\mathcal Z$, where $s_0=s_\delta(K) > 0$.
+The intersection of the chain is a compact set $M$.
+By the outer regularity of the Lebesgue measure there exists an open $U\supseteq M$ whose volume is arbitrarily close to $\vol M$.
+Since every $L\in\mathcal Z$ is compact and $M$ does not intersect the complement of $U$, some $L\in\mathcal Z$ lies in $U$.
+Hence $\vol L\le\vol U$ and can be made arbitrarily close to $\vol M$.
+It is also clear that $a(L)\ge a(M)$ for any $L\in\mathcal Z$.
+Hence $s_\delta(M)$ must be at least $s_0$.
+
+Applying Zorn's lemma to the compact subsets of $K$ satisfying $s_\delta(L)\ge s_0$, we get an inclusion-minimal such set $M$.
+But the above argument applied to $M$ in place of $K$ contradicts the minimality.
 \end{proof}
 
 {\sloppy
