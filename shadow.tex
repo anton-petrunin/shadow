@@ -154,7 +154,11 @@ Choose a unit vector $w$; denote by $L$ and $L_t$ the projections of $K$ and $K_
 The $t$-neighborhood of $L_t$ is contained in the projection of $C$, so $L_t$ is at distance at least $t$ from the boundary of the projection of $C$.
 This allows us to estimate
 \[
-\area L-\area L_t\ge\int\limits_{\substack{u\in \SSS^{n-2}\\r\in [0,t]}} \phi(u,r)\cdot J_w(u,r).
+\area L-\area L_t
+\ge
+\int\limits_{u\in \SSS^{n-2}}
+\int\limits_{r\in [0,t]}
+\phi(u,r)\cdot J_w(u,r).
 \]
 where $\SSS^{n-2}=\SSS^{n-1}\cap w^\perp$ and
 $J_w(u,r)$ denotes the Jacobian at $(u,r)$ of the projection  to $w^\perp$ of the restriction $\xi|_{\SSS^{n-2}\times \RR}$. This estimate holds true since the points with $\phi(u,r)=1$ are projected injectively to $L$ with the Jacobian $J_w$ and do not get into $L_t$.
@@ -172,7 +176,9 @@ where $k(w')$ denotes normal curvature of $\partial C$ in the direction $w'$ at 
 Note that $\tfrac{1}{n-1}\cdot H(p)$ is the average of $k(w')$ for $w'\perp u_0$.
 Therefore, taking the average, we get
 \[
-a(K)-a(K_t)\ge \frac {H(p)\cdot \omega_{n-1}\cdot(1+o_t(1))}{ G(p)} \oint\limits_{\substack{u\in \SSS^{n-1}\\r\in [0,t]}} \phi(u,r).
+a(K)-a(K_t)\ge \frac {H(p)\cdot \omega_{n-1}\cdot(1+o_t(1))}{ G(p)} \oint\limits_{u\in \SSS^{n-1}}
+\int\limits_{r\in [0,t]}
+\phi(u,r).
 \]
 We used that averaging over the whole sphere is the same as averaging over a variable point in a subsphere and then averaging over subspheres.
 \end{proof}
