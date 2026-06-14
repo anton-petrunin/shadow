@@ -121,9 +121,11 @@ It may be made strictly convex by smoothing its support function outside of the 
 
 The bound on the mean curvature follows from the inequality of arithmetic and geometric means.
 
-Assume now that the statement does not hold for any $\eps<0$.
-Then we must have inequalty in \ref{eq:area=<a} cannot be improved to \[\area (\cont K_s)\le \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K_s)-\delta;\] for fixed $\delta>0$ and all small $s>0$.
-It follows that $\cont K=\partial(\conv K)$, and the last statement follows.
+Let us now discuss the improved bound with $\eps < 0$. If the inequality in \ref{eq:area=<a} can be improved to
+\[
+\area (\cont K_s)\le \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K_s)-\delta,
+\] 
+for some fixed $\delta>0$ and all sufficiently small $s>0$ then the final estimate can be extended to some $\eps<0$. Otherwise, for a sequence $s_k\to+0$ we have the gap in \ref{eq:area=<a} tend to zero. \textbf{If we could assert that $\area(\cont K_s)\to \area(\cont K)$ and $a(\cont K_s)\to a(\cont K)$ then the equality in the Crofton estimate \ref{eq:area=<a} for $s=0$ and $K_0=K$ would imply that almost every line intersecting $\cont K$ intersects it twice. From the compactness of $\cont K$ this would imply} $\cont K=\partial(\conv K)$, and the last statement would follow.
 \end{proof}
 
 
@@ -214,19 +216,29 @@ After this procedure, $K$ remains compact, its volume does not change while Fava
 Moreover, now every nonempty intersection of $K$ with an open set has positive volume.
 This ensures that the volume cut from $K$ by the procedure of Lemma~\ref{lem:variation} will be positive.
 
-Recall that $a(K)=\tfrac{\omega_{n-1}}{\kappa(K)^{n-1}}$ and $\vol B=\tfrac{\omega_{n}}{\kappa(K)^{n}}$.
+%Recall that $a(K)=\tfrac{\omega_{n-1}}{\kappa(K)^{n-1}}$ and $\vol B=\tfrac{\omega_{n}}{\kappa(K)^{n}}$.
 Applying Lemma~\ref{lem:variation} to $C$ and $p$ provided by Lemma~\ref{lem:support}, we get a compact set $K'\subset K$ such that
-\[s_\delta(K')>s_\delta(K).\]
-
-\textbf{Here must be the formulas.}
-%\[\vol K-\vol K'< \left( \frac{n\omega_n}{(n-1)\omega_{n-1}\kappa(K)}+\eps\right)\cdot (a(K)-a(K')).\]
-%Noting that $\kappa(K)=\tfrac{\omega_{n-1}^{1/(n-1)}}{a(K)^{1/(n-1)}}$, we transform this into
-%\[\vol K-\vol K'< \left( \frac{n\omega_n a(K)^{1/(n-1)}}{(n-1)\omega_{n-1}^{n/(n-1)}}+\eps\right)\cdot (a(K)-a(K')).\]
+\[
+s_\delta(K')>s_\delta(K).
+\]
+Let us explain this in detail. We know that
+\[
+\vol K-\vol K'< \left( \frac{n\omega_n}{(n-1)\omega_{n-1}\kappa(K)}+\eps\right)\cdot (a(K)-a(K')).
+\]
+Noting that $\kappa(K)=\tfrac{\omega_{n-1}^{1/(n-1)}}{a(K)^{1/(n-1)}}$, we transform this into
+\[
+\vol K-\vol K'< \left( \frac{n\omega_n a(K)^{1/(n-1)}}{(n-1)\omega_{n-1}^{n/(n-1)}}+\eps\right)\cdot (a(K)-a(K')).
+\]
 %and applying the definition of $c_n$:
-%\[\vol K-\vol K'< \left( c_n\frac{n}{(n-1)}a(K)^{1/(n-1)}+\eps \right)\cdot (a(K)-a(K')).\]
-%Considering the derivatives of $s_\delta(K)$ as a function of $\vol$ and $a$ one observes that
-%\[\frac{\partial s_\delta(K)}{\partial\vol} = 1,\quad \frac{\partial s_\delta(K)}{\partial a(K)} = (1+\delta)c_n\frac{n}{n-1} a(K)^{1/(n-1)}\]
-%and therefore, for an appropriate choice of $\eps>0$, we get $s_\delta(K')>s_\delta(K)$ for the chopped body $K'$.
+% $c_n=\frac{\omega_n}{\omega_{n-1}^{n/(n-1)}}$
+%\[
+%\vol K-\vol K'< \left( c_n\frac{n}{(n-1)}a(K)^{1/(n-1)}+\eps \right)\cdot (a(K)-a(K')).
+%\]
+Using $\vol B=\tfrac{\omega_{n}}{\kappa(K)^{n}}=\tfrac{\omega_n a(K)^{n/(n-1)}}{\omega_{n-1}^{n/(n-1)}}$) and considering the derivatives of $s_\delta(K)$ as a function of $\vol$ and $a$, one observes that
+\[
+\frac{\partial s_\delta(K)}{\partial\vol} = 1,\quad \frac{\partial s_\delta(K)}{\partial a} = (1+\delta)\frac{n\omega_n}{(n-1)\omega_{n-1}^{n/(n-1)}} a(K)^{1/(n-1)}
+\]
+and therefore, for an appropriate choice of $\eps>0$, we get $s_\delta(K')>s_\delta(K)$ for the chopped body $K'$.
 
 Now consider an inclusion chain $\mathcal Z$ of compact subsets $L\subset K$ satisfying $s_\delta(L)\z\ge s_\delta(K)$ for all $L\in\mathcal Z$.
 The intersection of the chain is a compact set, say~$M$.
