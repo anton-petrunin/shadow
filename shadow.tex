@@ -32,7 +32,9 @@ We outline a proof of the isoperimetric inequality for Favard area.
 Given a compact subset $K\subset \RR^n$ let us denote by $a(K)$ its \emph{Favard area}; that is, the average of the areas of orthogonal projections of $K$ onto hyperplanes.
 Area and volume will mean the Lebesgue measures of dimension $n-1$ and $n$.
 
-The Favard area is well-defined. Indeed, the dependence of the projection on the hyperplane in this case has closed graph. Therefore, Fubini's theorem implies the integrability of the area of the projection as a function of the hyperplane.
+The Favard area is well-defined.
+Indeed, the dependence of the projection on the hyperplane in this case has closed graph.
+Therefore, Fubini's theorem implies the integrability of the area of the projection as a function of the hyperplane.
 
 \begin{thm}{Theorem}\label{thm:main}
 Let $K\subset \RR^n$ be a compact subset and let $B\subset \RR^n$ be a ball.
@@ -60,7 +62,8 @@ In the proof we adapt an idea of Frederick Almgren, \cite[pp. 454--455]{almgren-
 
 \section{Proofs}
 
-Given a compact set $K$, consider the ball $B$ such that $a(K)=a(B)$. Let us denote by $\kappa=\kappa(K)$ the normal curvature of $\partial B$, so $\tfrac1\kappa$ is the radius of $B$ and
+Given a compact set $K$, consider the ball $B$ such that $a(K)=a(B)$.
+Let us denote by $\kappa=\kappa(K)$ the normal curvature of $\partial B$, so $\tfrac1\kappa$ is the radius of $B$ and
 \[
 \frac{\omega_{n-1}}{\kappa^{n-1}}=a(K)=a(B),\quad \frac{\omega_{n}}{\kappa^{n}}=\vol B,
 \]
@@ -70,15 +73,16 @@ where $\omega_n$ is the volume of the unit ball in $\RR^n$.
 Let $K$ be a compact set in $\RR^n$.
 Given $\eps>0$, there is a strictly convex body $C$ with smooth boundary such that $C\supset K$,
 $\partial C\cap K$ contains a single point, say $p$,
-and the Gauss and mean curvatures of $\partial C$ at $p$ are at least $(\kappa(K)-\eps)^{n-1}$ and $(n-1)\cdot (\kappa(K)-\eps)$, respectively.
-
-Moreover, the same holds for some $\eps<0$ unless $\partial K\supset \partial(\conv K)$;
+and the mean curvature of $\partial C$ at $p$ is at least $(n-1)\cdot (\kappa(K)-\eps)$.
+Moreover, the same holds for some $\eps<0$ unless $\partial K\supset \partial(\conv K)$ or $\vol K=0$;
 here $\conv K$ denotes the convex hull of $K$.
 \end{thm}
 
 \begin{proof}
-Let us denote by $K_s$ the closed $s$-neighborhood of $K$. Good thing about $K_s$ is that the convex hull $\conv K_s$ has $C^{1,1}$-smooth boundary; in particular, its second derivatives exist almost everywhere and are bounded.
-So the shape operator ($\Shape$), the Gauss curvature $G=\det(\Shape)$, and mean curvature $H=\tr(\Shape)$ are defined almost everywhere on $\partial(\conv K_s)$. Note also that any hyperplane projection of $K_s$ is the closed $s$-neighborhood of the projection of $K$ to the same hyperplane, which implies continuous dependence of the area of the projection on $s\ge 0$.
+Let us denote by $K_s$ the closed $s$-neighborhood of $K$.
+Good thing about $K_s$ is that the convex hull $\conv K_s$ has $C^{1,1}$-smooth boundary; in particular, its second derivatives exist almost everywhere and are bounded.
+So the shape operator ($\Shape$), the Gauss curvature $G=\det(\Shape)$, and mean curvature $H=\tr(\Shape)$ are defined almost everywhere on $\partial(\conv K_s)$.
+Note also that any hyperplane projection of $K_s$ is the closed $s$-neighborhood of the projection of $K$ to the same hyperplane, which implies continuous dependence of the area of the projection on $s\ge 0$.
 
 Define the \emph{contact boundary} of $K_s$ as
 \[
@@ -91,7 +95,7 @@ Hence,
 \]
 Therefore, for any $\delta>0$ the inequality
 \[
-G(x)\ge \frac{\area \SSS^{n-1}}{\area (\cont K_s)}-\delta = \frac{n\omega_n}{\area (\cont K_s)}-\delta
+G(x)\ge \frac{\area \SSS^{n-1}}{\area (\cont K_s)}-\delta = \frac{n\cdot\omega_n}{\area (\cont K_s)}-\delta
 \]
 holds for $x$ in a set of positive measure of $\cont K_s$.
 
@@ -110,7 +114,7 @@ Combining the last three inequalities and the definition of $\kappa(K_s)$ and it
 
 Let us take a smooth hypersurface $W_s$ with slightly smaller (with positive definite difference) shape operator at $x$ compared to that of $\partial(\conv K_s)$;
 note that $W_s$ touches $K_s$ only at $x$.
-Note that all the curvatures of $\partial \conv K_s$ were at most $1/s$, so all the curvatures of $W_s$ may be assumed strictly smaller than $1/s$.
+Note that all the curvatures of $\partial \conv K_s$ were at most $\tfrac1s$, so all the curvatures of $W_s$ may be assumed strictly smaller than $\tfrac1s$.
 
 Let $W$ be the $s$-equidistant hypersurface of $W_s$.
 Note that $W$ touches $K$ in a single point, say $p$, which is the nearest-point projection of $x$ to $K$.
@@ -121,11 +125,15 @@ It may be made strictly convex by smoothing its support function outside of the 
 
 The bound on the mean curvature follows from the inequality of arithmetic and geometric means.
 
-Let us now discuss the improved bound with $\eps < 0$. If the inequality in \ref{eq:area=<a} can be improved to
-\[
-\area (\cont K_s)\le \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K_s)-\delta,
-\] 
-for some fixed $\delta>0$ and all sufficiently small $s>0$ then the final estimate can be extended to some $\eps<0$. Otherwise, for a sequence $s_k\to+0$ we have the gap in \ref{eq:area=<a} tend to zero. \textbf{If we could assert that $\area(\cont K_s)\to \area(\cont K)$ and $a(\cont K_s)\to a(\cont K)$ then the equality in the Crofton estimate \ref{eq:area=<a} for $s=0$ and $K_0=K$ would imply that almost every line intersecting $\cont K$ intersects it twice. From the compactness of $\cont K$ this would imply} $\cont K=\partial(\conv K)$, and the last statement would follow.
+Now assume $\vol K\ne 0$; so, $\conv K$ is nondegenerate.
+If $\partial K\z{\not\supset} \partial(\conv K)$, then the Crofton formula implies
+\[\area (\cont K)< \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K).\]
+By local Steiner's formula \cite[4.2.1]{schneider}, $s\mapsto \area (\cont K_s)$ is a polynomial function, so it must be continous at $s= 0$.
+Furthermore, $s\mapsto a(\cont K_s)$ is upper semicontinuous at $s= 0$.
+It follows that we can improve \ref{eq:area=<a} to
+\[\area (\cont K_s)\le \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K_s)-\delta,\]
+for some fixed $\delta>0$ and all sufficiently small $s>0$.
+Now the argument above implies the statement for some $\eps<0$.
 \end{proof}
 
 
@@ -180,7 +188,8 @@ This allows us to estimate
 \phi(u,r)\cdot J_w(u,r),
 \]
 where $\SSS^{n-2}=\SSS^{n-1}\cap w^\perp$ and
-$J_w(u,r)$ denotes the Jacobian at $(u,r)$ of the projection onto $w^\perp$ of the restriction $\xi|_{\SSS^{n-2}\times \RR}$. This estimate holds true since the points with $\phi(u,r)=1$ are projected injectively to $L$ with the Jacobian $J_w$ and do not get into $L_t$.
+$J_w(u,r)$ denotes the Jacobian at $(u,r)$ of the projection onto $w^\perp$ of the restriction $\xi|_{\SSS^{n-2}\times \RR}$.
+This estimate holds true since the points with $\phi(u,r)=1$ are projected injectively to $L$ with the Jacobian $J_w$ and do not get into $L_t$.
 
 If $t$ is sufficiently small, then $\phi(u,r)\ne 0$ only if $u$ lies in a sufficiently small neighborhood of $u_0$.
 This implies that $w$ may be considered almost perpendicular to $u_0$, which we assume further.
@@ -190,7 +199,8 @@ If $\phi(u,r)\ne 0$ and $0\le r\le t$, then, from the uniform continuity of $J_w
 \[
 J_w(u,r)=(1+o_t(1))\cdot J_{w'}(u_0,0)=(1+o_t(1))\cdot \frac{k(w')}{G(p)},
 \]
-where $k(w')$ denotes normal curvature of $\partial C$ in the direction $w'$ at $p$. The last equality can be understood by approximating $C$ with a graph of a quadratic function, noting that a projection corresponds to the restriction of its dual, and noting that a diagonal element of an inverse matrix (corresponding to $k(w')$) is an $(n-2)\times (n-2)$ minor of the original matrix (corresponding to the Gaussian curvature of the projection) divided by the determinant of the whole matrix (corresponding to the Gaussian curvature before the projection).
+where $k(w')$ denotes normal curvature of $\partial C$ in the direction $w'$ at $p$.
+The last equality can be understood by approximating $C$ with a graph of a quadratic function, noting that a projection corresponds to the restriction of its dual, and noting that a diagonal element of an inverse matrix (corresponding to $k(w')$) is an $(n-2)\times (n-2)$ minor of the original matrix (corresponding to the Gaussian curvature of the projection) divided by the determinant of the whole matrix (corresponding to the Gaussian curvature before the projection).
 
 Note that $\tfrac{1}{n-1}\cdot H(p)$ is the average of $k(w')$ for $w'\perp u_0$.
 Therefore, taking the average, we get
@@ -221,22 +231,22 @@ Applying Lemma~\ref{lem:variation} to $C$ and $p$ provided by Lemma~\ref{lem:sup
 \[
 s_\delta(K')>s_\delta(K).
 \]
-Let us explain this in detail. We know that
+Indeed, we know that
 \[
-\vol K-\vol K'< \left( \frac{n\omega_n}{(n-1)\omega_{n-1}\kappa(K)}+\eps\right)\cdot (a(K)-a(K')).
+\vol K-\vol K'< \left( \frac{n\cdot \omega_n}{(n-1)\cdot\omega_{n-1}\cdot \kappa(K)}+\eps\right)\cdot (a(K)-a(K')).
 \]
 Noting that $\kappa(K)=\tfrac{\omega_{n-1}^{1/(n-1)}}{a(K)^{1/(n-1)}}$, we transform this into
 \[
-\vol K-\vol K'< \left( \frac{n\omega_n a(K)^{1/(n-1)}}{(n-1)\omega_{n-1}^{n/(n-1)}}+\eps\right)\cdot (a(K)-a(K')).
+\vol K-\vol K'< \left( \frac{n\cdot \omega_n\cdot  a(K)^{1/(n-1)}}{(n-1)\omega_{n-1}^{n/(n-1)}}+\eps\right)\cdot (a(K)-a(K')).
 \]
 %and applying the definition of $c_n$:
 % $c_n=\frac{\omega_n}{\omega_{n-1}^{n/(n-1)}}$
 %\[
 %\vol K-\vol K'< \left( c_n\frac{n}{(n-1)}a(K)^{1/(n-1)}+\eps \right)\cdot (a(K)-a(K')).
 %\]
-Using $\vol B=\tfrac{\omega_{n}}{\kappa(K)^{n}}=\tfrac{\omega_n a(K)^{n/(n-1)}}{\omega_{n-1}^{n/(n-1)}}$) and considering the derivatives of $s_\delta(K)$ as a function of $\vol$ and $a$, one observes that
+Using $\vol B=\tfrac{\omega_{n}}{\kappa(K)^{n}}=\tfrac{\omega_n\cdot  a(K)^{n/(n-1)}}{\omega_{n-1}^{n/(n-1)}}$) and considering the derivatives of $s_\delta(K)$ as a function of $\vol$ and $a$, one observes that
 \[
-\frac{\partial s_\delta(K)}{\partial\vol} = 1,\quad \frac{\partial s_\delta(K)}{\partial a} = (1+\delta)\frac{n\omega_n}{(n-1)\omega_{n-1}^{n/(n-1)}} a(K)^{1/(n-1)}
+\frac{\partial s_\delta(K)}{\partial\vol} = 1,\qquad \frac{\partial s_\delta(K)}{\partial a} = (1+\delta)\cdot \frac{n\cdot\omega_n}{(n-1)\cdot\omega_{n-1}^{n/(n-1)}} \cdot a(K)^{1/(n-1)}
 \]
 and therefore, for an appropriate choice of $\eps>0$, we get $s_\delta(K')>s_\delta(K)$ for the chopped body $K'$.
 
