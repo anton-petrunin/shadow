@@ -40,8 +40,7 @@ Then
 \[
 a(K)= a(B)\quad\Rightarrow\quad \vol K\le \vol B.
 \]
-Moreover, if equality holds, then $K$ contains a congruent copy $B$ and the remaining part has vanishing volume.%
-\footnote{Со случаем равенства надо разобраться, иначе странно.}
+Moreover, if equality holds, then $K$ contains a congruent copy $B$ and the remaining part has vanishing volume.
 \end{thm}
 
 By \cite[3.3.13]{federer}, this theorem gives a more exact version of the standard isoperimetric inequality.
@@ -62,6 +61,8 @@ Let $K$ be a compact set in $\RR^n$.
 Given $\eps>0$, there is a strictly convex body $C$ with smooth boundary such that $C\supset K$,
 $\partial C\cap K$ contains a single point, say $p$,
 and the Gauss and mean curvatures of $\partial C$ at $p$ are at least $(\kappa(K)-\eps)^{n-1}$ and $(n-1)\cdot (\kappa(K)-\eps)$, respectively.
+
+Moreover, if $K$ is not convex, then the same holds for some $\eps<0$.
 \end{thm}
 
 \begin{proof}
@@ -90,6 +91,7 @@ a(\cont K_s)\le a(K_s).
 Further, since $\cont K_s\subset \partial (\conv K_s)$, the Crofton formula implies
 \[
 \area (\cont K_s)\le \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K_s);
+\eqlbl{eq:area=<a}
 \]
 the constant $\tfrac{n\cdot\omega_n}{\omega_{n-1}}$ here is the optimal constant (so we have equality if $\cont K_s$ is a closed convex hypersurface).
 
@@ -107,6 +109,9 @@ The hypersurface $W$ was already strictly convex, so $C$ is strictly convex in a
 It may be made strictly convex by smoothing its support function outside of the corresponding neighborhood of the normal at $p$.
 
 The bound on the mean curvature follows from the inequality of arithmetic and geometric means.
+
+Finally, note that if $K$ is not convex, then inequality in \ref{eq:area=<a} is strict.
+This leads to the last statement.
 \end{proof}
 
 
@@ -220,6 +225,13 @@ Hence $s_\delta(M)$ must be at least $s_0$.
 
 Applying Zorn's lemma to the compact subsets of $K$ satisfying $s_\delta(L)\ge s_0$, we get an inclusion-minimal such set $M$.
 But the above argument applied to $M$ in place of $K$ contradicts the minimality.
+
+Now assume that equality holds for $K$.
+Arguing as above we can assume that nonempty intersections of $K$ with open sets have positive volume.
+
+We need to show that $K$ is congruent to $B$.
+If $K$ is convex, then it follows from the equality case in the standard isoperimetric inequality.
+Otherwise, arguing as above and taking into account the second part of \ref{lem:support}, we can find a compact set $K'\subset K$ that contradicts the main part of the theorem and arrive at a contradiction.
 \end{proof}
 
 {\sloppy
