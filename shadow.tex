@@ -65,6 +65,7 @@ $\partial C\cap K$ contains a single point, say $p$,
 and the Gauss and mean curvatures of $\partial C$ at $p$ are at least $(\kappa(K)-\eps)^{n-1}$ and $(n-1)\cdot (\kappa(K)-\eps)$, respectively.
 
 Moreover, if $K$ is not convex, then the same holds for some $\eps<0$.
+\textbf{This has no proof, see below.}
 \end{thm}
 
 \begin{proof}
@@ -113,7 +114,10 @@ It may be made strictly convex by smoothing its support function outside of the 
 The bound on the mean curvature follows from the inequality of arithmetic and geometric means.
 
 Finally, note that if $K$ is not convex, then inequality in \ref{eq:area=<a} is strict.
+\textbf{This is false. For example, if $K$ is convex minus something in its interior then $K_s$ is of the same kind with equality in \ref{eq:area=<a}. Of course, from compactness of $K$ in this case one may replace $K$ by its convex hull increasing its volume and not changing $a(K)$.}  
+
 This leads to the last statement.
+\textbf{No, after \ref{eq:area=<a} there is an implicit passing to the limit $s\to+0$ with $\kappa(K_s)\to\kappa(K)$ most probably from above. In the statement of the lemma $\eps<0$ is assumed the same for all $s$ while the difference in the strict inequality \ref{eq:area=<a} must definitely depend on $s$ and may not produce a negative $\eps$ in the limit.}
 \end{proof}
 
 
@@ -208,6 +212,7 @@ Recall that $a(K)=\tfrac{\omega_{n-1}}{\kappa(K)^{n-1}}$ and $\vol B=\tfrac{\ome
 Applying Lemma~\ref{lem:variation} to $C$ and $p$ provided by Lemma~\ref{lem:support}, we get a compact set $K'\subset K$ such that
 \[s_\delta(K')>s_\delta(K).\]
 
+\textbf{Here must be the formulas.}
 %\[\vol K-\vol K'< \left( \frac{n\omega_n}{(n-1)\omega_{n-1}\kappa(K)}+\eps\right)\cdot (a(K)-a(K')).\]
 %Noting that $\kappa(K)=\tfrac{\omega_{n-1}^{1/(n-1)}}{a(K)^{1/(n-1)}}$, we transform this into
 %\[\vol K-\vol K'< \left( \frac{n\omega_n a(K)^{1/(n-1)}}{(n-1)\omega_{n-1}^{n/(n-1)}}+\eps\right)\cdot (a(K)-a(K')).\]
