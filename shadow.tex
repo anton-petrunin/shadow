@@ -128,8 +128,11 @@ The bound on the mean curvature follows from the inequality of arithmetic and ge
 Now assume $\vol K\ne 0$; so, $\conv K$ is nondegenerate.
 If $\partial K\z{\not\supset} \partial(\conv K)$, then the Crofton formula implies
 \[\area (\cont K)< \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K).\]
-By local Steiner's formula function $s\mapsto \area (\cont K_s)$ is polynomial, so it must be continous.%
-\footnote{Не могу найти подходящую ссылку, но это верно.}
+The function $\rho\:s\mapsto \area (\cont K_s)$ is polynomial, so it must be continous.
+Indeed, cobining coarea formula and local Steiner's formula \cite[5.2.1]{schneider} we get that $t\mapsto \int_0^t \rho(s)ds$ is a polynomial;
+further, since the nearest-point projection is short, we get that $\rho$ is nondecreasing;
+finally, $\cont K_s$ are compact subsets lying on convex surfaces and $\cont K_s\to \cont K_0$ as $s\to 0$ in the sense of Hausdorff, which implies that $\rho$ is continuous at $s=0$.
+
 Thus,
 \[\area (\cont K_s)\le  \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K)-\delta\]
 for some fixed $\delta>0$ and any small $s>0$.
