@@ -29,12 +29,8 @@ We outline a proof of the isoperimetric inequality for Favard area.
 \section{Introduction}
 
 Given a compact subset $K\subset \RR^n$ let us denote by $a(K)$ its \emph{Favard area}; that is, the average of the areas of orthogonal projections of $K$ onto hyperplanes.
-Area and volume will mean the Lebesgue measures of dimension $n-1$ and $n$.%
-\footnote{This definition agrees with ``Favard length'', but Burago--Zalgaller define ``Favard masure'' with mulitplicity, so it is closer to integralgeometric measure --- maybe it is better to avoid this term? Maybe ``mean shadow area''?}
-
-The Favard area is well-defined.
-Indeed, the dependence of the projection on the hyperplane in this case has closed graph.
-Therefore, Fubini's theorem implies the integrability of the area of the projection as a function of the hyperplane.
+\emph{Area} here means the Lebesgue measures of dimension $n-1$ or the $(n-1)$th Hausdorff measure in dimension $n$, \emph{volume} means the Lebesgue measure in dimension $n$.%
+\footnote{This definition agrees with ``Favard length'', but Burago--Zalgaller define ``Favard measure'' with mulitplicity, so it is closer to integralgeometric measure --- maybe it is better to avoid this term? Maybe ``mean shadow area''?}
 
 \begin{thm}{Theorem}\label{thm:main}
 Let $K\subset \RR^n$ be a compact subset and let $B\subset \RR^n$ be a ball.
@@ -58,7 +54,29 @@ but these are not the only examples; the latter follows from the result of Kenne
 
 In the proof we adapt an idea of Frederick Almgren, \cite[pp. 454--455]{almgren-1986}.
 
+\begin{thm}{Corollary}\label{cor:borel}
+Let $E\subset \RR^n$ be a Borel subset and let $B\subset \RR^n$ be a ball.
+Then
+\[
+\vol E= \vol B \Rightarrow a(E)\ge a(B).
+\]
+\end{thm}
 
+The equality case in Corollary~\ref{cor:borel} seems harder to characterize, so we do not discuss it here.
+
+Note that $a(E)$ is well-defined for Borel sets. Consider the Borel set
+\[
+\widetilde E = \{(x,R)\in \RR^n\times \mathrm{O}(n)\ |\ R(x)\in E\}.
+\]
+The $a(E)$ can be defined as the measure of the projection of $\widetilde E$ to $\RR^{n-1}\times \mathrm{O}(n)$, assuming the normed Haar measure on $\mathrm{O}(n)$. By Suslin's theorem (see~\cite[Section~1.10]{bogachev-i}) a projection of a Borel set is Lebesgue measurable, so $a(E)$ is well defined.
+
+Favard length of various irregular sets has been intensively studied in the last years; see, e.g., \cite{Laba2012,Damian2024}. The isoperimetric problem for Favard length or area has optical and mechanical interpretations originating from Newton's problem of least resistance.
+
+Namely, suppose that there is a body (that is, a set, not necessarily connected, with a piecewise smooth boundary) on the plane with {\it absolutely black} surface. We want to deform it, without changing its area, so as to make its visibility as small as possible. The visibility of a body is the average value of its orthogonal projections to all possible straight lines, that is, the Favard length.
+
+There is another, much more difficult, problem related to minimizing the visibility of a planar body with fixed area and {\it mirror surface}; the so-called problem of {\it camouflaging in billiards}. At present, only below estimates for this value are found; see \cite{cam1,cam2}. Additionally, it is known how to construct a body invisible in $n$ directions $(n=1,\,2,\ldots)$, provided that the angles between them are multiples of $\pi/n$ \cite{invisNpoints}. Some other results are known about invisibility in several directions or from several points in $\RRR^2$ and $\RRR^3$ \cite{book2012,fractal,invis2points}.
+
+The mechanical interpretation, going back to I. Newton \cite{N}, is as follows. A body moves in a rarefied medium of point particles on the plane and rotates very slowly and uniformly. The medium is so rare that mutual interaction of the particles can be neglected. One is interested in minimizing the time averaged value of the force of resistance of the medium. If the body-particle collisions are completely inelastic, so that each particle, after the collision, loses its relative velocity and remains forever near the body, the problem is reduced to the isoperimetric problem for Favard length. If, on the contrary, the collisions are perfectly elastic then the problem amounts to camouflaging in billiards (see, e.g., \cite{book2012}).
 
 \section{Proofs}
 
@@ -78,7 +96,7 @@ Moreover, the same holds for some $\eps<0$ unless $\partial K\supset \partial(\c
 here $\conv K$ denotes the convex hull of $K$.
 \end{thm}
 
-\begin{proof}
+\begin{proof}[Proof for $\eps>0$]
 Let us denote by $K_s$ the closed $s$-neighborhood of $K$.
 Good thing about $K_s$ is that the convex hull $\conv K_s$ has $C^{1,1}$-smooth boundary; in particular, its second derivatives exist almost everywhere and are bounded.
 So the shape operator ($\Shape$), the Gauss curvature $G=\det(\Shape)$, and mean curvature $H=\tr(\Shape)$ are defined almost everywhere on $\partial(\conv K_s)$.
@@ -124,19 +142,37 @@ The hypersurface $W$ was already strictly convex, so $C$ is strictly convex in a
 It may be made strictly convex by smoothing its support function outside of the corresponding neighborhood of the normal at $p$.
 
 The bound on the mean curvature follows from the inequality of arithmetic and geometric means.
+\end{proof}
 
-Now assume $\vol K\ne 0$; so, $\conv K$ is nondegenerate.
-If $\partial K\z{\not\supset} \partial(\conv K)$, then the Crofton formula implies
-\[\area (\cont K)< \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K).\]
-The function $\rho\:s\mapsto \area (\cont K_s)$ is polynomial, so it must be continous.
-Indeed, cobining coarea formula and local Steiner's formula \cite[5.2.1]{schneider} we get that $t\mapsto \int_0^t \rho(s)ds$ is a polynomial;
-further, since the nearest-point projection is short, we get that $\rho$ is nondecreasing;
-finally, $\cont K_s$ are compact subsets lying on convex surfaces and $\cont K_s\to \cont K_0$ as $s\to 0$ in the sense of Hausdorff, which implies that $\rho$ is continuous at $s=0$.
+\begin{proof}[Proof for $\eps<0]
+Now assume $\vol K\ne 0$; so, $\conv K$ is nondegenerate. If $\partial K\z{\not\supset} \partial(\conv K)$, then the Crofton formula implies
+\[
+\area (\cont K) < \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K).
+\]
+Note that $\cont K_s$ is the set of points $x\in \partial(\conv K_s)=\partial (\conv K)_s$ whose closest point $p$ in $\conv K$ belongs to $\cont K$. 
 
-Thus,
-\[\area (\cont K_s)\le  \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K)-\delta\]
-for some fixed $\delta>0$ and any small $s>0$.
-Now the argument above implies the statement for some $\eps<0$.
+Let us compare $\area(\cont K_s)$ and $\area(\cont K)$ using the Crofton formula for a set $X$ in the form of the integral of the number of points in $X\cap \ell$ over straight lines $\ell$. Almost any line $\ell$ either does not intersect $\partial(\conv K)$ or intersects it in two smooth points of $\partial(\conv K)$. Consider such lines only, there are the following cases:
+
+Case 1: $\ell$ has no intersection with $\conv K$. Then $\ell$ does not intersect $\conv K_s$ either for sufficiently small $s$. 
+
+Case 2: Both points of $\ell\cap\partial(\conv K)$ do not belong to $\cont K$. Then they both are at positive distance from $\cont K$ and $\ell$ does not intersect $\cont K_s$ for sufficiently small $s$ since the two points of intersection $\ell\cap\partial(\conv K_s)$, from smoothness, tend to the two points of intersection $\ell\cap \partial(\conv K)$ as $s\to+0$, while $\cont K_s$ is a distance at most $s$ from $\cont K$. 
+
+Case 3: One of the points of $\ell\cap\partial(\conv K)$ does not belong to $\cont K$ then this point is at positive distance from $\cont K$ and the corresponding point of $\ell\cap \partial(\conv K_s)$ does not belong to $\cont K_s$ for sufficiently small $s$ similar to the previous case. 
+
+Case 4: Both points of $\ell\cap\partial(\conv K)$ are in $\cont K$. This does not affect the conclusion below.
+
+In all the cases, as $s\to +0$, the integrand of the Crofton formula for $\area(\cont K_s)$ almost everywhere has limit superior less or equal to the integrand of the Crofton formula for $\area(\cont K)$. Fatou's lemma the implies that $\limsup_{s\to +0} \area(\cont(K_s)) \le \area(\cont(K))$. 
+
+%Consider the function $\rho\:s\mapsto \area (\cont K_s)$. Combining the coarea formula and local Steiner's formula \cite[5.2.1]{schneider} we get that $t\mapsto \int_0^t \rho(s)ds$ is a polynomial, so $\rho$ is itself a polynomial almost everywhere. Further, since the nearest-point projection is $1$-Lipschitz, we get that $\rho$ is nondecreasing, so it is a polynomial everywhere at least for $s>0$. 
+
+%Finally, $\cont K_s$ are compact subsets lying on convex surfaces and $\cont K_s\to \cont K$ as $s\to 0$ in the sense of Hausdorff, which implies that $\rho$ is continuous at $s=0$.
+%\textbf{Hausdorff convergence need not imply the convergence of Haudorff measures, so we need a more careful explanation here.}
+
+It follows that
+\[
+\area (\cont K_s)\le  \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K)-\delta,
+\]
+for some fixed $\delta>0$ and any small $s>0$. Now the argument above with $a(\cont K_s)$ replaced with $a(\cont K)\le a(K)$ implies the statement for some $\eps<0$ depending on $\delta$.
 \end{proof}
 
 
@@ -271,17 +307,29 @@ If $\partial K\supset \partial(\conv K)$, then it follows from the equality case
 Otherwise, arguing as above and taking into account the second part of \ref{lem:support}, we can find a compact set $K'\subset K$ that contradicts the main part of the theorem and arrive at a contradiction.
 \end{proof}
 
+\begin{proof}[Proof of Corollary~\ref{cor:borel}]
+From the inner regularity of the Lebesgue measure, any Borel set $E$ can be approximated in measure by compact subsets $K_n \subseteq E$, that is, $\vol K_n \to \vol E$ as $n \to \infty$. For the average projection we have $a(E) \ge a(K_n)$ from the inclusion $K_n\subseteq E$. Hence the inequality for $E$ follows from the inequality for every $K_n$.
+\end{proof}
+
 \section{Comment}
 
 Given a compact set $K\subset \RR^n$, denote by $r_k(K)$ the radius of ball $B_k$ that has the same $k$-dimensional Favard volume as $K$; that is, $K$ and $B_k$ have equal averages of the $k$-volumes of orthogonal projections to $k$-dimensional subspaces.
 
-Taking averages in our inequality we get
-\[r_1(K)\ge r_2(K)\ge\dots\ge r_n(K).\]
-For convex sets, a stronger statement follows from the Alexandrov--Fenchel inequality.
-In the nonconvex case one cannot make it much stronger;
-at least, given a sequence
-$r_1\ge r_2\ge\dots\ge r_n$
-it is possible to construct a compact $K\subset \RR^n$ with $r_i(K)$ arbitrarily close to the prescribed $r_i$ for each $i$.
+Considering a $k$-dimensional projection as a sequence of codimension $1$ projections and averaging over them all, from Theorem~\ref{thm:main} we obtain
+\[
+r_1(K)\ge r_2(K)\ge\dots\ge r_n(K).
+\]
+For convex sets, a stronger statement follows from the Alexandrov--Fenchel inequality, that is, from the logarithmic concavity of the mixed volumes 
+\[
+\vol(\underbrace{K,\ldots,K}_k,\underbrace{B,\ldots,B}_{n-k})
+\]
+as function of $k$.
+
+In the nonconvex case one cannot make it much stronger. At least, given a sequence
+\[
+r_1\ge r_2\ge\dots\ge r_n
+\]
+it is possible to construct a compact set $K\subset \RR^n$ with $r_i(K)$ arbitrarily close to the prescribed $r_i$ for each $i$. Indeed, one can approximate a ball by a polyhedron $P$ and then consider the $k$-skeleton $P^{(k)}$ of $P$. This skeleton has $r_m=0$ for all $m>k$ and $r_m$ close to the original radius for $m\le k$. Thus we approximate any sequence of the form $(\underbrace{r,\ldots,r}_k,\underbrace{0,\ldots,0}_{n-k})$. Arbitrary decreasing sequence can be approximated by a union of such $k$-dimensional sets for $k=1,\ldots, n$ placed sufficiently far apart from each other to make the average projection almost additive.
 
 
 {\sloppy
