@@ -32,8 +32,8 @@ Fix an integer $n\ge 2$ and consider $n$-dimensional Euclidean space $\RR^n$.
 Given a set $S\subset \RR^n$, we define its \emph{volume} ($\vol S$) and \emph{area} ($\area S$) as the Hausdorff measures in dimension $n$ and $n-1$, respectively.
 
 Given a subset $K\subset \RR^n$ let us denote by $a(K)$ its \emph{mean shadow area}; that is, the average of the areas of orthogonal projections of $K$ onto hyperplanes.
-The mean shadow area is defined for any Borel set; see \ref{prop:def}.
-If $n=2$, then mean shadow area is also known as \emph{Favard length}; see, \cite{Laba2012,Damian2024}.
+The mean shadow area is defined for any Borel set; see Section~\ref{prop:def}.
+If $n=2$, then mean shadow area is also known as \emph{Favard length}; see \cite{Laba2012,Damian2024}.
 
 \begin{thm}{Theorem}\label{thm:main}
 Let $K\subset \RR^n$ be a compact subset and let $B\subset \RR^n$ be a ball.
@@ -84,10 +84,14 @@ Some other results are known about invisibility in several directions or from se
 \paragraph{About the proof.}
 \emph{Almgren's frontier} $\cont K$ of a set $K\subset \RR^n$ will be defined
 as the intersection of its boundary and boundary of its convex hull.
-Assuming that $K$ is a counterexample, we will find a point $p\in \cont K$ and chop $K$ in a small neighborhood of $p$ producing a worse counterexample.
+We observe that for any unit normal vector $u$ there is a point $x\in \cont K$ and a supporting hyperplane $\Pi\ni x$ to $K$ with outer normal vector $u$. Further, by monotonicity of mean shadow area with respect to inclusion, we have $a(\cont K)\le a(K)$.
+
+Now let us assume that $K$ is a counterexample.
+Using the two observations above, we find a point $p\in \cont K$ so that chopping $K$ in a small neighborhood of $p$ is producing a worse counterexample.
 Then Zorn's lemma leads to a contradiction.
 
 This type of argument was first used by Frederick Almgren in his proof of optimal isoperimetric inequality; see \cite{almgren-1986}.
+Our proof might serve as a more elementary illustration to this idea.
 
 
 \section{Borel sets}
@@ -129,7 +133,7 @@ Moreover, the same holds for some $\eps<0$ unless $\partial K\supset \partial(\c
 here $\conv K$ denotes the convex hull of $K$.
 \end{thm}
 
-In fact the second part of the lemma (with $\eps<0$) holds if $K$ is not a ball;
+In fact, the second part of the lemma (with $\eps<0$) seems to hold if $K$ is not a ball;
 we reduce generality since it is sufficient for our theorem.
 
 Let us define \emph{Almgren's frontier} of  $K\subset \RR^n$ as
@@ -351,7 +355,7 @@ If $\partial K\supset \partial(\conv K)$, then it follows from the equality case
 Otherwise, arguing as above and taking into account the second part of \ref{lem:support}, we can find a compact set $K'\subset K$ that contradicts the main part of the theorem and arrive at a contradiction.
 \end{proof}
 
-\section{Comment}
+\section{Average $k$-dimensional shadows}
 
 Given a compact set $K\subset \RR^n$, denote by $r_k(K)$ the radius of ball $B_k$ that has the same $k$-dimensional mean shadow area as $K$; that is, $K$ and $B_k$ have equal averages of the $k$-volumes of orthogonal projections to $k$-dimensional subspaces.
 
@@ -365,8 +369,7 @@ v_k=\vol(\underbrace{K,\ldots,K}_k,\underbrace{B,\ldots,B}_{n-k})
 \]
 as a function of $k$.
 
-In the nonconvex case one cannot make it much stronger.
-At least, given a sequence
+In the nonconvex case one cannot deduce anything stronger. More precisely, given a sequence
 \[
 r_1\ge r_2\ge\dots\ge r_n
 \]
