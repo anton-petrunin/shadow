@@ -63,35 +63,38 @@ In the general case, our theorem gives a more exact version of the standard isop
 Let $E\subset \RR^n$ be a Borel subset and let $B\subset \RR^n$ be a ball.
 Then
 \[
-\vol E= \vol B \Rightarrow a(E)\ge a(B).
+\vol E= \vol B \quad\Rightarrow\quad a(E)\ge a(B).
 \]
 \end{thm}
 
 In the case of equality, it is plausible that $E$ coincides with a ball up to measure zero,  that is, there is a ball $B$ such that $\vol(E\triangle B)=0$, where $\triangle$ denotes symmetric difference.
 
+In the final section, we comment on the $k$-dimensional version of mean shadow area.
+
 The problem can be traced back to Newton's minimal resistance problem \cite{N}, which can be described as follows.
 Consider a body that moves in a rarefied medium of point particles.
 The medium is so rare that mutual interaction of the particles can be neglected.
-One is interested in minimizing the time averaged value of the force of resistance of the medium, assuming that the body moves in a random direction without rotation.
+One is interested in minimizing the time-averaged value of the force of resistance of the medium, assuming that the body moves in a random direction without rotation.
 If the body-particle collisions are completely inelastic, so that each particle, after the collision, loses its relative velocity and remains forever near the body, the problem is reduced to our isoperimetric problem.
 
-If, on the contrary, the collisions are perfectly elastic then the problem amounts to camouflaging in billiards (see, e.g., \cite{book2012}).
+If, on the contrary, the collisions are perfectly elastic, then the problem amounts to camouflaging in billiards (see, e.g., \cite{book2012}).
 This problem is much more difficult.
-At present, only lower bound for this value are found; see \cite{cam1,cam2}.
-Additionally, it is known how to construct a body invisible in $n$ directions $(n=1,\,2,\ldots)$, provided that the angles between them are multiples of $\pi/n$ \cite{invisNpoints}.
+At present, only lower bounds for this value are found; see \cite{cam1,cam2}.
+Additionally, it is known how to construct a body invisible in $m$ directions $(m=1,\,2,\ldots)$, provided that the angles between them are multiples of $\pi/m$ \cite{invisNpoints}.
 Some other results are known about invisibility in several directions or from several points in $\RR^2$ and $\RR^3$ \cite{book2012,fractal,invis2points}.
 
 \paragraph{About the proof.}
 \emph{Almgren's frontier} $\cont K$ of a set $K\subset \RR^n$ will be defined
-as the intersection of its boundary and boundary of its convex hull.
-We observe that for any unit normal vector $u$ there is a point $x\in \cont K$ and a supporting hyperplane $\Pi\ni x$ to $K$ with outer normal vector $u$. Further, by monotonicity of mean shadow area with respect to inclusion, we have $a(\cont K)\le a(K)$.
+as the intersection of its boundary and boundary of its convex hull $\conv K$.
+We observe that the outer normals to supporting hyperplanes to $\conv K$ at points in $\cont K$ constitute the whole sphere.
+Further, by monotonicity of mean shadow area with respect to inclusion, we have $a(\cont K)\le a(K)$.
 
 Now let us assume that $K$ is a counterexample.
-Using the two observations above, we find a point $p\in \cont K$ so that chopping $K$ in a small neighborhood of $p$ is producing a worse counterexample.
+Using the two observations above, we find a point $p\in \cont K$ so that chopping $K$ in a small neighborhood of $p$ can produce a worse counterexample.
 Then Zorn's lemma leads to a contradiction.
 
 This type of argument was first used by Frederick Almgren in his proof of optimal isoperimetric inequality; see \cite{almgren-1986}.
-Our proof might serve as a more elementary illustration to this idea.
+Our proof might serve as a more elementary illustration of this idea.
 
 
 \section{Borel sets}
@@ -105,7 +108,7 @@ Consider the Borel set
 \[
 \widetilde E = \{(x,R)\in \RR^n\times \mathrm{O}(n)\ |\ R(x)\in E\}.
 \]
-The mean shadow area $a(E)$ can be defined as the measure of the projection of $\widetilde E$ to $\RR^{n-1}\times \mathrm{O}(n)$, assuming the normed Haar measure on $\mathrm{O}(n)$.
+The mean shadow area $a(E)$ can be defined as the measure of the projection of $\widetilde E$ to $\RR^{n-1}\times \mathrm{O}(n)$, assuming the normalized Haar measure on $\mathrm{O}(n)$.
 By Suslin's theorem (see~\cite[Section~1.10]{bogachev-i}) a projection of a Borel set is Lebesgue measurable, so $a(E)$ is well defined.
 \end{proof}
 
@@ -194,21 +197,24 @@ Note that $\cont K_s$ is the set of points $x\in \partial(\conv K_s)=\partial (\
 
 Let us compare $\area(\cont K_s)$ and $\area(\cont K)$ using the Crofton formula for a set $X$ in the form of the integral of the number of points in $X\cap \ell$ over straight lines $\ell$.
 Almost any line $\ell$ either does not intersect $\partial(\conv K)$ or intersects it in two smooth points of $\partial(\conv K)$.
-Consider only such lines only, there are the following cases:
+Consider only such lines, there are the following cases:
 
-Case 1: $\ell$ has no intersection with $\conv K$.
+Case 1: Assume that $\ell$ has no intersection with $\conv K$.
 Then $\ell$ does not intersect $\conv K_s$ either for sufficiently small $s$.
 
-Case 2: Both points of $\ell\cap\partial(\conv K)$ do not belong to $\cont K$.
-Then they both are at positive distance from $\cont K$ and $\ell$ does not intersect $\cont K_s$ for sufficiently small $s$ since the two points of intersection $\ell\cap\partial(\conv K_s)$, from smoothness, tend to the two points of intersection $\ell\cap \partial(\conv K)$ as $s\to+0$, while $\cont K_s$ is a distance at most $s$ from $\cont K$.
+Case 2: Assume that both points of $\ell\cap\partial(\conv K)$ do not belong to $\cont K$.
+Then they both are at positive distance from $\cont K$ and $\ell$ does not intersect $\cont K_s$ for sufficiently small $s$.
+Indeed, the two points of intersection $\ell\cap\partial(\conv K_s)$ tend to the two points of intersection $\ell\cap \partial(\conv K)$ as $s\to+0$, while $\cont K_s$ is a distance at most $s$ from $\cont K$.
 
-Case 3: One of the points of $\ell\cap\partial(\conv K)$ does not belong to $\cont K$, then this point is at positive distance from $\cont K$ and the corresponding point of $\ell\cap \partial(\conv K_s)$ does not belong to $\cont K_s$ for sufficiently small $s$ similar to the previous case.
+Case 3: Assume that one the points of $\ell\cap\partial(\conv K)$ does not belong to $\cont K$.
+Then this point is at positive distance from $\cont K$.
+Therefore, the corresponding point of $\ell\cap \partial(\conv K_s)$ does not belong to $\cont K_s$ for sufficiently small $s$ as in the previous case.
 
 Case 4: Both points of $\ell\cap\partial(\conv K)$ are in $\cont K$.
 This does not affect the conclusion below.
 
 In all the cases, as $s\to +0$, the integrand of the Crofton formula for $\area(\cont K_s)$ almost everywhere has limit superior less than or equal to the integrand of the Crofton formula for $\area(\cont K)$.
-Fatou's lemma the implies that $\limsup_{s\to +0} \area(\cont(K_s)) \le \area(\cont(K))$.
+Fatou's lemma then implies that $\limsup_{s\to +0} \area(\cont(K_s)) \le \area(\cont(K))$.
 
 %Consider the function $\rho\:s\mapsto \area (\cont K_s)$. Combining the coarea formula and local Steiner's formula \cite[5.2.1]{schneider} we get that $t\mapsto \int_0^t \rho(s)ds$ is a polynomial, so $\rho$ is itself a polynomial almost everywhere. Further, since the nearest-point projection is $1$-Lipschitz, we get that $\rho$ is nondecreasing, so it is a polynomial everywhere at least for $s>0$. 
 
@@ -287,7 +293,7 @@ If $\phi(u,r)\ne 0$ and $0\le r\le t$, then, from the uniform continuity of $J_w
 J_w(u,r)=(1+o_t(1))\cdot J_{w'}(u_0,0)=(1+o_t(1))\cdot \frac{k(w')}{G(p)},
 \]
 where $k(w')$ denotes normal curvature of $\partial C$ in the direction $w'$ at $p$.
-The last equality can be understood by approximating $C$ with a graph of a quadratic function, noting that a projection corresponds to the restriction of its dual, and noting that a diagonal element of an inverse matrix (corresponding to $k(w')$) is an $(n-2)\times (n-2)$ minor of the original matrix (corresponding to the Gaussian curvature of the projection) divided by the determinant of the whole matrix (corresponding to the Gaussian curvature before the projection).
+The last equality can be understood by approximating $C$ by the graph of a quadratic function, noting that a projection corresponds to the restriction of its dual, and noting that a diagonal element of an inverse matrix (corresponding to $k(w')$) is an $(n-2)\times (n-2)$ minor of the original matrix (corresponding to the Gaussian curvature of the projection) divided by the determinant of the whole matrix (corresponding to the Gaussian curvature before the projection).
 
 Note that $\tfrac{1}{n-1}\cdot H(p)$ is the average of $k(w')$ for $w'\perp u_0$.
 Therefore, taking the average, we get
@@ -357,7 +363,7 @@ Otherwise, arguing as above and taking into account the second part of \ref{lem:
 
 \section{Average $k$-dimensional shadows}
 
-Given a compact set $K\subset \RR^n$, denote by $r_k(K)$ the radius of ball $B_k$ that has the same $k$-dimensional mean shadow area as $K$; that is, $K$ and $B_k$ have equal averages of the $k$-volumes of orthogonal projections to $k$-dimensional subspaces.
+Given a compact set $K\subset \RR^n$, denote by $r_k(K)$ the radius of a ball $B_k$ that has the same $k$-dimensional mean shadow area as $K$; that is, $K$ and $B_k$ have equal averages of the $k$-volumes of orthogonal projections to $k$-dimensional subspaces.
 
 Considering a $k$-dimensional projection as a sequence of codimension $1$ projections and averaging over them all, from Theorem~\ref{thm:main} we obtain
 \[
