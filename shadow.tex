@@ -139,7 +139,7 @@ Let us denote by $\kappa=\kappa(K)$ the normal curvature of $\partial B$, so $\t
 Let $K$ be a compact set in $\RR^n$.
 Given $\eps>0$, there is a strictly convex body $C$ with smooth boundary $\partial C$ such that $C\supset K$,
 $\partial C\cap K$ contains a single point, say $p$,
-and the mean curvature of $\partial C$ at $p$ is at least $(n-1)\cdot (\kappa(K)-\eps)$.
+and the mean curvature of $\partial C$ at $p$ is at least $(n-1)\cdot (\kappa(K)\z-\eps)$.
 Moreover, the same holds for some $\eps<0$ unless $\partial K\supset \partial(\conv K)$ or $\vol K=0$;
 here $\conv K$ denotes the convex hull of $K$.
 \end{thm}
@@ -150,13 +150,11 @@ One can prove that it holds if $K$ is not a ball, but we state only the weaker v
 Let us define \emph{Almgren's frontier} of $K\subset \RR^n$ as
 \[\cont K=\partial K\cap\partial(\conv K).\]
 
-\begin{proof}[Proof for $\eps>0$]
+\parit{Proof for $\eps>0$.}
 Let us denote by $K_s$ the closed $s$-neighborhood of $K$.
 If $s>0$, then $\conv K_s$ has $C^{1,1}$-smooth boundary; in particular, its second derivatives exist almost everywhere and are bounded.
 So the shape operator ($\Shape$), the Gauss curvature $G=\det(\Shape)$, and mean curvature $H=\tr(\Shape)$ are defined almost everywhere on $\partial(\conv K_s)$.
 Note also that any hyperplane projection of $K_s$ is the closed $s$-neighborhood of the projection of $K$ to the same hyperplane, which implies continuous dependence of the area of the projection on $s\ge 0$.
-
-
 
 Since every linear function attains its maximum on $\conv K_s$ in a point of $K_s$, the normals of $\cont K_s$ constitute the whole sphere.
 Hence,
@@ -185,6 +183,12 @@ Let us take a smooth hypersurface $W_s$ with slightly smaller (with positive def
 note that $W_s$ touches $K_s$ only at $x$.
 Note that all the curvatures of $\partial \conv K_s$ were at most $\tfrac1s$, so all the curvatures of $W_s$ may be assumed strictly smaller than $\tfrac1s$.
 
+\begin{wrapfigure}{r}{53 mm}
+\vskip-0mm
+\centering
+\includegraphics{mppics/pic-20}
+\end{wrapfigure}
+
 Let $W$ be the $s$-equidistant hypersurface of $W_s$.
 Note that $W$ touches $K$ in a single point, say $p$, which is the nearest-point projection of $x$ to $K$.
 From the above observation on curvatures it follows that $W$ is still convex and smooth at $p$.
@@ -193,7 +197,7 @@ The hypersurface $W$ was already strictly convex, so $C$ is strictly convex in a
 It may be made strictly convex by smoothing its support function outside of the corresponding neighborhood of the normal at $p$.
 
 The bound on the mean curvature follows from the inequality of arithmetic and geometric means.
-\end{proof}
+\qeds
 
 \begin{proof}[Proof for $\eps<0$]
 Now assume $\vol K\ne 0$; so, $\conv K$ is nondegenerate.
