@@ -386,6 +386,68 @@ Thus we approximate any sequence of the form $(\underbrace{r,\ldots,r}_k,\underb
 An arbitrary decreasing sequence can be approximated by a union of such $k$-dimensional sets for $k=1,\ldots,n$ placed sufficiently far apart from each other to make the average projection almost additive.
 
 
+\section{Appendix: A more elementary proof in dimension $2$}
+
+Here we outline the proof of Theorem~\ref{thm:main} in the plane that appeared in the first version of this paper on \href{https://arxiv.org/abs/2606.10608v1}{arxiv.org}.
+
+\subsection{Connected sets}
+\label{subsec connect}
+
+Consider the problem in the class of connected sets $K$. Since each projection of $K$ coincides with the corresponding projection of its convex hull $\conv K$, the Favard length of the set and of its convex hull coincide, $a(K) = a(\conv K)$. Further, since the area of a set does not exceed the area of its convex hull, $\vol(K) \le \vol(\conv K)$, and the average projection length of convex bodies is proportional to their perimeter, the problem reduces to the classical isoperimetric problem: minimize the perimeter of a convex set with fixed area. In this case all solution to the problem are disks.
+
+\subsection{Sets with finitely many connected components}
+
+Now consider the problem in the class of sets $K$ with finitely many connected components. Repeating the argument of Section \ref{subsec connect}, one can assume without loss of generality that each connected component of $K$ is convex.
+
+(a) Let us show that there exists a solution in the class of sets with fixed area and no more than $n$ connected components $(n = 1,\, 2,\ldots)$. To that end, consider a sequence of sets $K_k$ with prescribed area and with $a(K_k)$ tending to 
+\[
+\inf \{ a(K) : K \text{ has no more than $n$ convex connected components} \}.
+\]
+Let $K_k^1, \ldots, K_k^n$ be the convex connected components of $K_k$; some of these sets may be empty. Note that the perimeters and diameters of all $K_k^m$ are uniformly bounded, since $a(K_k^m)$ are bounded. Choose a center $c_k^m\in K_k^m$. By the Blaschke selection theorem~\cite[Section~6.1]{gruber2007} after passing to a subsequence the convex sets $K_k^m-c_k^m$ will tend to some convex set $K_\infty^m$ as $k\to\infty$ in the Hausdorff metric. Hence we may replace each set $K_k^m$ with the translate $K_\infty^m + c_k^m$ keeping the same total area and keeping the limit $\lim\limits_{k\to\infty}a(K_k)$, since the difference between the projection lengths (of unions of $n$ segments) is bounded by $2n$ times the Hausdorff distance.
+
+So we consider $K_k$ consisting of different translates $K_k^m = K_\infty^m+c_k^m$ of the fixed collection of $n$ convex sets. For a pair of indices $i\neq j$, consider the sequence of distances $\dist(K_k^i, K_k^j)$. Either the sequence tends to infinity, or passing to a subsequence we make it bounded. Doing so for every pair $i\neq j$, we may consider a graph $G$ on  vertices $\{1,2,\ldots,n\}$ consisting of pairs $\{i,j\}$ with bounded $\dist(K_k^i, K_k^j)$ and having $\dist(K_k^i, K_k^j)\to +\infty$ for $\{i,j\}\not\in G$. If $G$ is connected then the sets $K_k$ have uniformly bounded diameter, so after a translation we may assume $c_k^m\to c_\infty^m$ by compactness and have an actual Hausdorff limit $K_k\to K$, which is the minimizer we need. If $G$ is not connected then splitting it to connected components corresponds to nontrivial splitting of $K_k$ into uniformly bounded sets $K_k^{(1)}, \ldots, K_k^{(c)}$, $c\ge 2$. By the same compactness argument, after passing to a subsequence we may assume that $K_k^{(\ell)} - c_k^{(\ell)}$ tends to some $K_\infty^{(\ell)}$. Then we replace $K_k^{(\ell)}$ with $K_\infty^{(\ell)} + c_k^{(\ell)}$ keeping the area and the limit $\lim\limits_{k\to\infty}a(K_k)$. After these manipulations every distance $\dist(K_k^{(\ell)}, K_k^{(\ell')})$ tends to infinity when $\ell\neq\ell'$. This means that $a K_k$ tends to the sum $\sum_{\ell} a K_\infty^{(\ell)}$. But placing the same sets $K_\infty^{(\ell)}$ in arbitrary fixed position makes average projection length of their union strictly smaller than $\sum_{\ell} a K_\infty^{(\ell)}$ because of non-trivial overlap of their projections. Hence $\sum_{\ell} a K_\infty^{(\ell)}$ cannot be equal to $\inf a(K)$ over unions of $n$ convex sets and the case of non-connected $G$ is impossible.
+
+(b) The set $K \cap \partial(\conv K)$ is the finite union of convex curves. Each curve is an arc of circumference, since otherwise we could replace it with the arc of circumference with the same length. As a result, the area of the set will increase, while its average projection length will remain the same or decrease.
+
+(c) The radii of all arcs coincide and are equal to
+\begin{equation}
+\label{maileq}
+R\ =\ \frac{2\vol (K)}{a(K)}.
+\end{equation}
+Indeed, let us replace an arc with the radius, say, $R_i$ with another arc with the same endpoints and the radius $R_i + dR$, with $dR$ small. The resulting increases of the area and the Favard length satisfy
+\[
+\frac{d\vol(K)}{da(K)}\ =\ R_i.
+\]
+On the other hand, since $K$ minimizes the functional ${a(K)}/{\sqrt{\vol (K)}}$, one concludes that small variations of the set must satisfy 
+\[
+d\,\left(\frac{a(K)}{\sqrt{\vol (K)}}\right)\ =\ \frac{\d\,a(K)}{\sqrt{\vol(K)}}\, -\, \frac{a(K)}{2\vol(K)\sqrt{\vol(K)}}\ d\vol(K)\ = \ 0,
+\]
+hence
+\[
+\frac{d\vol(K)}{d\,a(K)}\ =\ \frac{2\vol(K)}{a(K)},
+\]
+and so, all $R_i$ coincide and satisfy \eqref{maileq}.
+
+(d) The boundary of $\conv K$ is regular. Indeed, a singular point of the boundary should be an endpoint of an arc of circumference. Cutting a small piece of $K$ near this point by a straight line at a distance $t$ from the point allows one to decrease the area by at most $\sim t^2$ and the average projection length by at least $\sim t$, showing that the original set $K$ is not optimal (the decrease of the area by $\sim t^2$ can be compensated by a homothety of scale $1 + O(t^2)$, while the decrease of $a$ of the order $t$ is maintained under the homothety).
+
+Let us explain this in detail. The order of magnitude at most $t^2$ for the area is clear. There is the cone of normals $C_p$ at a singular point $p$ of $\conv K$. Let its angular size be $3\delta>0$. Divide $C_p$ into three sub-cones of equal angular size $\delta$, and let $C'_p$ be the central sub-cone. Denote its center as $\nu\in C'_p$. Cutting a piece of $K$ at a small distance $t$ from $p$ by a line perpendicular to $\nu$ decreases the projection of $K$ to any line parallel to $\ell\in C'_p$ by at least $t\sin\delta$. So the total decrease of $a(K)$ is at least $\frac{\delta\sin\delta}{2\pi} t$. 
+
+(e) We have $a(K) \ge 2\pi R$, and the equality is attained only if $K$ is a disk. Indeed, $a(K)$ is the sum of two values, where the former one is induced by the part of the boundary $\partial K \cap \partial(\conv K)$, and the latter one is induced by the rest of the boundary $\partial K \setminus \partial(\conv K)$. The set $\partial K \cap \partial(\conv K)$ is the union of circular arcs of radius $R$ with the sum of angular sides equal to $2\pi$, and it induces the value $2\pi R$. The set $\partial K \setminus \partial(\conv K)$, if it is nonempty, induces a positive value.
+
+Using \eqref{maileq}, one obtains
+\[
+\frac{a(K)}{\sqrt{\vol(K)}} = \frac{a(K)}{\sqrt{R\, a(K)/2}} \ge 2\sqrt{\pi},
+\]
+and the equality is attained only if $K$ is a union of a disk and several points.
+
+\subsection{Other compact sets}
+
+For any compact set $K$ consider its $\eps$-neighborhood $U_\eps$ with $\eps > 0$. We have $\vol (U_\eps) \to \vol (K)$ as $\eps \to 0$. Further, for all $\theta$,\, $\aera(\pi_\theta(U_\eps)) \to \area(\pi_\theta(K))$, and therefore, $a(U_\eps) \to a(K)$ as $\eps \to 0$. It follows that the infimum in the problem coincides with the infimum in the class of open bounded sets.
+
+Each bounded open set $K$ has at most countably many connected components, say $C_1,\, C_2,\ldots$, and therefore can be approximated by open sets $K_n =\cup_{k=1}^n C_k$. We have $\vol(K_n) \to \vol(K)$ as $n \to \infty$ and $a(K_n) \le a(K)$ always. It follows that the infimum in the problem coincides with the infimum in the class of open bounded sets with finitely many connected components.
+
+However, the problem in this class has already been solved in the previous section, implying the inequality.
+
 {\sloppy
 \def\emph{\textit}
 \printbibliography[heading=bibintoc]
