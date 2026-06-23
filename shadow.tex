@@ -3,7 +3,7 @@
 \usepackage{hyperref}
 
 \def\thetitle{Shadow isoperimetry}
-\def\theauthors{}
+\def\theauthors{Alexander Plakhov, Roman Karasev, and Anton Petrunin}
 
 \hypersetup{colorlinks=true,
 citecolor=black,
@@ -23,7 +23,7 @@ pdfauthor={\theauthors}
 \maketitle
 
 \begin{abstract}
-We outline a proof of the isoperimetric inequality in terms of mean shadow area.
+We prove an isoperimetric inequality in terms of mean shadow area.
 \end{abstract}
 
 \section{Introduction}
@@ -31,7 +31,7 @@ We outline a proof of the isoperimetric inequality in terms of mean shadow area.
 Fix an integer $n\ge 2$ and consider $n$-dimensional Euclidean space $\RR^n$.
 Given a set $S\subset \RR^n$, we define its \emph{volume} ($\vol S$) and \emph{area} ($\area S$) as the Hausdorff measures in dimension $n$ and $n-1$, respectively.
 
-Given a subset $K\subset \RR^n$ let us denote by $a(K)$ its \emph{mean shadow area}; that is, the average of the areas of orthogonal projections of $K$ onto hyperplanes.
+Given a subset $K\subset \RR^n$, let us denote by $a(K)$ its \emph{mean shadow area}; that is, the average of the areas of orthogonal projections of $K$ onto hyperplanes.
 The mean shadow area is defined for any Borel set; see Section~\ref{prop:def}.
 If $n=2$, then mean shadow area is also known as \emph{Favard length}; see \cite{Laba2012,Damian2024}.
 
@@ -53,11 +53,14 @@ Moreover, if equality holds, then $K$ contains a congruent copy of $B$ and the r
 For the equality case, we give only a necessary condition, which is not sufficient; an example can be guessed from the picture.
 On the other hand, equality holds for the union of a ball with any set of vanishing mean shadow area, but these are not the only examples; the latter follows from the result of Kenneth Falconer \cite[Theorem 5.1]{falconer}.
 
-If $K$ is convex, then our theorem is just a reformulation of the standard isoperimetric inequality.
-Indeed, by Crofton's formula we have
-\[\frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(K)=\area(\partial K),\]
+
+By \cite[3.3.13]{federer} we have
+\[\frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(K)\le\area(\partial K),\]
 where $\omega_n$ denotes the volume of the $n$-dimensional unit ball.
-In the general case, our theorem gives a more exact version of the standard isoperimetric inequality; it follows from a Crofton-like argument \cite[3.3.13]{federer}.
+Moreover, by Crofton's formula the equality holds if $K$ is convex.
+Therefore, for convex sets our theorem is just a reformulation of the standard isoperimetric inequality,
+but in the general case, it is more exact.
+
 
 \begin{thm}{Corollary}\label{cor:borel}
 Let $E\subset \RR^n$ be a Borel subset and let $B\subset \RR^n$ be a ball.
@@ -67,19 +70,16 @@ Then
 \]
 \end{thm}
 
-In the case of equality, it is plausible that $E$ coincides with a ball up to measure zero,  that is, there is a ball $B$ such that $\vol(E\triangle B)=0$, where $\triangle$ denotes symmetric difference.
+In the case of equality, it is plausible that $E$ coincides with a ball up to measure zero, that is, there is a ball $B$ such that $\vol(E\triangle B)=0$, where $\triangle$ denotes symmetric difference.
 
-In the final section, we comment on the $k$-dimensional version of mean shadow area.
+The problem was motivated by Newton's minimal resistance problem \cite{N}, which can be described as follows.
+Consider a body that moves in a rarefied medium of particles, so the mutual interaction of the particles can be neglected.
+One is interested in minimizing the time-averaged value of the force of resistance of the medium.
+If we assume that the body moves in a random direction without rotation and the body-particle collisions are completely inelastic, so that each particle, after the collision, loses its relative velocity and remains forever near the body, then the problem is reduced to our isoperimetric problem.
+This problem was also posed by Guillaume Aubrun \cite{guillaume}.
 
-The problem can be traced back to Newton's minimal resistance problem \cite{N}, which can be described as follows.
-Consider a body that moves in a rarefied medium of point particles.
-The medium is so rare that mutual interaction of the particles can be neglected.
-One is interested in minimizing the time-averaged value of the force of resistance of the medium, assuming that the body moves in a random direction without rotation.
-If the body-particle collisions are completely inelastic, so that each particle, after the collision, loses its relative velocity and remains forever near the body, the problem is reduced to our isoperimetric problem.
-
-If, on the contrary, the collisions are perfectly elastic, then the problem amounts to camouflaging in billiards (see, e.g., \cite{book2012}).
-This problem is much more difficult.
-At present, only lower bounds for this value are found; see \cite{cam1,cam2}.
+On the other hand, if the collisions are perfectly elastic, then the problem amounts to camouflaging in billiards.
+This problem is more difficult; at present, only lower bounds for this value are found; see \cite{cam1,cam2}.
 Additionally, it is known how to construct a body invisible in $m$ directions $(m=1,\,2,\ldots)$, provided that the angles between them are multiples of $\pi/m$ \cite{invisNpoints}.
 Some other results are known about invisibility in several directions or from several points in $\RR^2$ and $\RR^3$ \cite{book2012,fractal,invis2points}.
 
@@ -96,8 +96,16 @@ Then Zorn's lemma leads to a contradiction.
 This type of argument was first used by Frederick Almgren in his proof of optimal isoperimetric inequality; see \cite{almgren-1986}.
 Our proof might serve as a more elementary illustration of this idea.
 
+\paragraph{Structure of the paper.}
+In Section~\ref{sec:borel} we show that mean shadow area is defined for any Borel set and prove the corollary modulo the main theorem.
+In the following section we prove the main theorem.
 
-\section{Borel sets}
+In Section~\ref{sec:k-shadows}, we comment on the $k$-dimensional version of mean shadow area.
+
+In the final section we sketch a more elementary proof of the 2-dimensional case;
+it is based on the idea that for a connected compact sets $K\subset\RR^2$ we have $a(K)=a(\conv K)$ and $\vol K\le \vol(\conv K)$.
+
+\section{Borel sets}\label{sec:borel}
 
 \begin{thm}{Proposition}\label{prop:def}
 The mean shadow area $a(E)$ is defined for any Borel set $E\subset \RR^n$.
@@ -109,7 +117,7 @@ Consider the Borel set
 \widetilde E = \{(x,R)\in \RR^n\times \mathrm{O}(n)\ |\ R(x)\in E\}.
 \]
 The mean shadow area $a(E)$ can be defined as the measure of the projection of $\widetilde E$ to $\RR^{n-1}\times \mathrm{O}(n)$, assuming the normalized Haar measure on $\mathrm{O}(n)$.
-By Suslin's theorem (see~\cite[Section~1.10]{bogachev-i}) a projection of a Borel set is Lebesgue measurable, so $a(E)$ is well defined.
+By Suslin's theorem \cite[Section~1.10]{bogachev-i}, a projection of a Borel set is Lebesgue measurable, so $a(E)$ is well defined.
 \end{proof}
 
 \begin{proof}[Proof of Corollary~\ref{cor:borel}]
@@ -119,7 +127,7 @@ Hence the inequality for $E$ follows from the inequality for every $K_n$.
 It remains to apply the main theorem.
 \end{proof}
 
-\section{Compact sets}
+\section{Compact sets}\label{sec:compact}
 
 Given a compact set $K$, consider the ball $B$ such that $a(K)=a(B)$.
 Let us denote by $\kappa=\kappa(K)$ the normal curvature of $\partial B$, so $\tfrac1\kappa$ is the radius of $B$ and
@@ -129,17 +137,17 @@ Let us denote by $\kappa=\kappa(K)$ the normal curvature of $\partial B$, so $\t
 
 \begin{thm}{Lemma}\label{lem:support}
 Let $K$ be a compact set in $\RR^n$.
-Given $\eps>0$, there is a strictly convex body $C$ with smooth boundary such that $C\supset K$,
+Given $\eps>0$, there is a strictly convex body $C$ with smooth boundary $\partial C$ such that $C\supset K$,
 $\partial C\cap K$ contains a single point, say $p$,
 and the mean curvature of $\partial C$ at $p$ is at least $(n-1)\cdot (\kappa(K)-\eps)$.
 Moreover, the same holds for some $\eps<0$ unless $\partial K\supset \partial(\conv K)$ or $\vol K=0$;
 here $\conv K$ denotes the convex hull of $K$.
 \end{thm}
 
-In fact, the second part of the lemma (with $\eps<0$) seems to hold if $K$ is not a ball;
-we reduce generality since it is sufficient for our theorem.
+The second part of the lemma (with $\eps<0$) will be needed in the proof of the equality case.
+One can prove that it holds if $K$ is not a ball, but we state only the weaker version needed below.
 
-Let us define \emph{Almgren's frontier} of  $K\subset \RR^n$ as
+Let us define \emph{Almgren's frontier} of $K\subset \RR^n$ as
 \[\cont K=\partial K\cap\partial(\conv K).\]
 
 \begin{proof}[Proof for $\eps>0$]
@@ -157,11 +165,11 @@ Hence,
 \]
 Therefore, the inequality
 \[
-G(x)\ge \frac{\area \SSS^{n-1}}{\area (\cont K_s)} = \frac{n\cdot\omega_n}{\area (\cont K_s)}
+G(x)\ge \frac{n\cdot\omega_n}{\area (\cont K_s)}
 \]
 holds for $x$ in a set of positive measure of $\cont K_s$.
 
-From the inclusion $\cont K_s\subseteq K_s$ it follows that
+From the inclusion $\cont K_s\subset K_s$ it follows that
 \[
 a(\cont K_s)\le a(K_s).
 \]
@@ -169,7 +177,7 @@ Further, since $\cont K_s\subset \partial (\conv K_s)$, the Crofton formula impl
 \[
 \area (\cont K_s)\le \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K_s);
 \]
-the constant $\tfrac{n\cdot\omega_n}{\omega_{n-1}}$ here is the optimal constant (so we have equality if $\cont K_s$ is a closed convex hypersurface).
+the constant $\tfrac{n\cdot\omega_n}{\omega_{n-1}}$ is optimal; we have equality if $\cont K_s$ is a closed convex hypersurface.
 
 Combining the last three inequalities with the definition of $\kappa(K_s)$ and its continuity in $s$ we get a point $x\in \cont K_s$ with well-defined shape operator and Gauss curvature at least $\kappa(K_s)^{n-1}$.
 
@@ -195,7 +203,8 @@ If $\partial K\z{\not\supset} \partial(\conv K)$, then the Crofton formula impli
 \]
 Note that $\cont K_s$ is the set of points $x\in \partial(\conv K_s)=\partial (\conv K)_s$ whose closest point $p$ in $\conv K$ belongs to $\cont K$.
 
-Let us compare $\area(\cont K_s)$ and $\area(\cont K)$ using the Crofton formula for a set $X$ in the form of the integral of the number of points in $X\cap \ell$ over straight lines $\ell$.
+Let us compare $\area(\cont K_s)$ and $\area(\cont K)$ using the Crofton formula;
+namely, if $X$ lies in the boundary of a convex set, then $\area X$ is the integral of the number of points in $X\cap \ell$ over straight lines $\ell$.
 Almost any line $\ell$ either does not intersect $\partial(\conv K)$ or intersects it in two smooth points of $\partial(\conv K)$.
 Consider only such lines, there are the following cases:
 
@@ -206,7 +215,7 @@ Case 2: Assume that both points of $\ell\cap\partial(\conv K)$ do not belong to 
 Then they both are at positive distance from $\cont K$ and $\ell$ does not intersect $\cont K_s$ for sufficiently small $s$.
 Indeed, the two points of intersection $\ell\cap\partial(\conv K_s)$ tend to the two points of intersection $\ell\cap \partial(\conv K)$ as $s\to+0$, while $\cont K_s$ is a distance at most $s$ from $\cont K$.
 
-Case 3: Assume that one the points of $\ell\cap\partial(\conv K)$ does not belong to $\cont K$.
+Case 3: Assume that one of the points of $\ell\cap\partial(\conv K)$ does not belong to $\cont K$.
 Then this point is at positive distance from $\cont K$.
 Therefore, the corresponding point of $\ell\cap \partial(\conv K_s)$ does not belong to $\cont K_s$ for sufficiently small $s$ as in the previous case.
 
@@ -214,7 +223,8 @@ Case 4: Both points of $\ell\cap\partial(\conv K)$ are in $\cont K$.
 This does not affect the conclusion below.
 
 In all the cases, as $s\to +0$, the integrand of the Crofton formula for $\area(\cont K_s)$ almost everywhere has limit superior less than or equal to the integrand of the Crofton formula for $\area(\cont K)$.
-Fatou's lemma then implies that $\limsup_{s\to +0} \area(\cont(K_s)) \le \area(\cont(K))$.
+By Fatou's lemma,
+\[\varlimsup_{s\to +0} \area(\cont K_s) \le \area(\cont K).\]
 
 %Consider the function $\rho\:s\mapsto \area (\cont K_s)$. Combining the coarea formula and local Steiner's formula \cite[5.2.1]{schneider} we get that $t\mapsto \int_0^t \rho(s)ds$ is a polynomial, so $\rho$ is itself a polynomial almost everywhere. Further, since the nearest-point projection is $1$-Lipschitz, we get that $\rho$ is nondecreasing, so it is a polynomial everywhere at least for $s>0$. 
 
@@ -223,7 +233,7 @@ Fatou's lemma then implies that $\limsup_{s\to +0} \area(\cont(K_s)) \le \area(\
 
 It follows that
 \[
-\area (\cont K_s)\le  \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K)-\delta,
+\area (\cont K_s)\le \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot a(\cont K)-\delta,
 \]
 for some fixed $\delta>0$ and any small $s>0$.
 Now the argument above with $a(\cont K_s)$ replaced with $a(\cont K)\le a(K)$ implies the statement for some $\eps<0$ depending on $\delta$.
@@ -303,7 +313,7 @@ a(K)-a(K_t)\ge \frac {H(p)\cdot \omega_{n-1}\cdot(1+o_t(1))}{ G(p)}
 \int\limits_{r\in [0,t]}
 \phi(u,r).
 \]
-We used that averaging over the whole sphere is the same as averaging over a variable point in a subsphere and then averaging over subspheres.
+Here we used that averaging over the whole sphere is the same as averaging over a variable point in a subsphere and then averaging over subspheres.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}.]
@@ -315,13 +325,13 @@ s_\delta(K) \df \vol K - (1+\delta)\cdot \vol B > 0,
 where $B$ denotes the ball such that $a(K)=a(B)$.
 
 Remove from $K$ the set of measure zero of its points of zero density and then pass to the closure.
-After this procedure, $K$ remains compact, its volume does not change while mean shadow area $a(K)$ may decrease.
+After this procedure, $K$ remains compact, its volume does not change, while mean shadow area $a(K)$ may decrease.
 Moreover, now every nonempty intersection of $K$ with an open set has positive volume.
 This ensures that the volume cut from $K$ by the procedure of Lemma~\ref{lem:variation} will be positive.
 
 Applying Lemma~\ref{lem:variation} to $C$ and $p$ provided by Lemma~\ref{lem:support}, we get a compact set $K'\subset K$ such that
 \[
-s_\delta(K')>s_\delta(K).
+s_\delta(K')>s_\delta(K).\leqno({*})
 \]
 Indeed, we know that
 \[
@@ -329,27 +339,29 @@ Indeed, we know that
 \]
 Noting that $\kappa(K)=\tfrac{\omega_{n-1}^{1/(n-1)}}{a(K)^{1/(n-1)}}$, we transform this into
 \[
-\vol K-\vol K'< \left( \frac{n\cdot \omega_n\cdot  a(K)^{1/(n-1)}}{(n-1)\omega_{n-1}^{n/(n-1)}}+\eps\right)\cdot (a(K)-a(K')).
+\vol K-\vol K'< \left( \frac{n\cdot \omega_n\cdot a(K)^{1/(n-1)}}{(n-1)\omega_{n-1}^{n/(n-1)}}+\eps\right)\cdot (a(K)-a(K')).
 \]
 %and applying the definition of $c_n$:
 % $c_n=\frac{\omega_n}{\omega_{n-1}^{n/(n-1)}}$
 %\[
 %\vol K-\vol K'< \left( c_n\frac{n}{(n-1)}a(K)^{1/(n-1)}+\eps \right)\cdot (a(K)-a(K')).
 %\]
-Note that $\vol B=\tfrac{\omega_{n}}{\kappa(K)^{n}}=\tfrac{\omega_n\cdot  a(K)^{n/(n-1)}}{\omega_{n-1}^{n/(n-1)}}$.
+Note that $\vol B=\tfrac{\omega_{n}}{\kappa(K)^{n}}=\tfrac{\omega_n\cdot a(K)^{n/(n-1)}}{\omega_{n-1}^{n/(n-1)}}$.
 Considering the derivatives of $s_\delta(K)$ as a function of $\vol$ and $a$, one observes that
 \[\frac{\partial s_\delta(K)}{\partial\vol} = 1,
 \qquad
 \frac{\partial s_\delta(K)}{\partial a} = -(1+\delta)\cdot \frac{n\cdot\omega_n}{(n-1)\cdot\omega_{n-1}^{n/(n-1)}} \cdot a(K)^{1/(n-1)}.\]
-Therefore, for an appropriate choice of $\eps>0$, we get $s_\delta(K')>s_\delta(K)$ for the chopped body $K'$.
+Therefore, we get $({*})$ for an appropriate choice of $\eps>0$.
 
 Now consider an inclusion chain $\mathcal Z$ of compact subsets $L\subset K$ satisfying $s_\delta(L)\z\ge s_\delta(K)$ for all $L\in\mathcal Z$.
 The intersection of the chain is a compact set, say~$M$.
-Let us choose an open $U\supset M$ such that $\vol U\approx\vol M$.
+Let us show that
+\[s_\delta(M)\ge s_\delta(K).\leqno({*}{*})\]
+Indeed, choose an open $U\supset M$ such that $\vol U\approx\vol M$.
 Since the sets in the chain are compact, some $L\in\mathcal Z$ lies in $U$.
 Hence $\vol L\le\vol U$;
 thus we can choose $L\in\mathcal Z$ such that $\vol L$ is arbitrarily close to $\vol M$.
-Since $L\supset M$, we also have $a(L)\ge a(M)$, and hence $s_\delta(M)\ge s_\delta(K)$.
+Since $L\supset M$, we also have $a(L)\ge a(M)$, and hence $({*}{*})$.
 
 Applying Zorn's lemma to the compact subsets of $K$ satisfying $s_\delta(L)\z\ge s_\delta(K)$, we get an inclusion-minimal such set $M$.
 But the above argument applied to $M$ in place of $K$ contradicts the minimality.
@@ -361,7 +373,7 @@ If $\partial K\supset \partial(\conv K)$, then it follows from the equality case
 Otherwise, arguing as above and taking into account the second part of \ref{lem:support}, we can find a compact set $K'\subset K$ that contradicts the main part of the theorem and arrive at a contradiction.
 \end{proof}
 
-\section{Average $k$-dimensional shadows}
+\section{Average $k$-dimensional shadows}\label{sec:k-shadows}
 
 Given a compact set $K\subset \RR^n$, denote by $r_k(K)$ the radius of a ball $B_k$ that has the same $k$-dimensional mean shadow area as $K$; that is, $K$ and $B_k$ have equal averages of the $k$-volumes of orthogonal projections to $k$-dimensional subspaces.
 
@@ -382,11 +394,84 @@ r_1\ge r_2\ge\dots\ge r_n
 it is possible to construct a compact set $K\subset \RR^n$ with $r_i(K)$ arbitrarily close to the prescribed $r_i$ for each $i$.
 Indeed, one can approximate a ball by a polyhedron $P$ and then consider the $k$-skeleton $P^{(k)}$ of $P$.
 This skeleton has $r_m=0$ for all $m>k$ and $r_m$ close to the original radius for $m\le k$.
-Thus we approximate any sequence of the form $(\underbrace{r,\ldots,r}_k,\underbrace{0,\ldots,0}_{n-k})$.
+Thus we approximate any sequence of the form
+\[(\underbrace{r,\ldots,r}_k,\underbrace{0,\ldots,0}_{n-k}).\]
 An arbitrary decreasing sequence can be approximated by a union of such $k$-dimensional sets for $k=1,\ldots,n$ placed sufficiently far apart from each other to make the average projection almost additive.
 
+\section{2-dimensional case}\label{sec:2D}
 
-\section{Appendix: A more elementary proof in dimension $2$}
+Let us outline a more elementary proof of \ref{thm:main} in case $n=2$.
+
+\begin{proof}[Sketch of 2-dimensional case of \ref{thm:main}]
+Suppose that $K\subset \RR^2$ is connected.
+Since each projection of $K$ coincides with the corresponding projection of its convex hull $\conv K$, we have
+\[a(K) = a(\conv K).\]
+Since $\vol(K) \le \vol(\conv K)$, the problem reduces to the classical isoperimetric problem: minimize the perimeter of a convex set with fixed area.
+In this case, the equality holds only for disks.
+
+Now consider the case when $K\subset \RR^2$ has a finite number of connected components, say $n$.
+Repeating the argument above, one can assume that each connected component of $K$ is convex.
+
+Let us show that in the class of sets with fixed area and no more than $n$ connected components, there is a set that minimizes Favard length.
+
+Consider a sequence of sets $K_k$ with prescribed area and with $a(K_k)$ tending to the lower bound.
+Let $K_k^1, \ldots, K_k^n$ be the convex connected components of $K_k$; some of these sets may be empty.
+Note that the perimeters and diameters of all $K_k^m$ are uniformly bounded, since $a(K_k^m)$ are bounded.
+Choose a center $c_k^m\in K_k^m$.
+By the Blaschke selection theorem~\cite[Section~6.1]{gruber2007}, after passing to a subsequence the convex sets $K_k^m-c_k^m$ will tend to some convex set $K_\infty^m$ as $k\to\infty$ in the Hausdorff metric.
+Hence we may replace each set $K_k^m$ with the translate $K_\infty^m + c_k^m$ keeping the same total area and keeping the limit $\lim\limits_{k\to\infty}a(K_k)$, since the difference between the projection lengths (of unions of $n$ segments) is bounded by $2\cdot n$ times the Hausdorff distance.
+
+Consider $K_k$ consisting of different translates $K_k^m = K_\infty^m+c_k^m$ of the fixed collection of $n$ convex sets.
+For a pair of indices $i\neq j$, consider the sequence of distances $\dist(K_k^i, K_k^j)$. Either the sequence tends to infinity, or passing to a subsequence we make it bounded.
+Doing so for every pair $i\neq j$, we may consider a graph $G$ on vertices $\{1,2,\ldots,n\}$ consisting of pairs $\{i,j\}$ with bounded $\dist(K_k^i, K_k^j)$ and having $\dist(K_k^i, K_k^j)\to +\infty$ for $\{i,j\}\z\notin G$.
+If $G$ is connected then the sets $K_k$ have uniformly bounded diameter, so after a translation we may assume $c_k^m\to c_\infty^m$ by compactness and have an actual Hausdorff limit $K_k\to K$, which is the minimizer we need.
+
+If $G$ is not connected then splitting it to connected components corresponds to nontrivial splitting of $K_k$ into uniformly bounded sets $K_k^{(1)}, \ldots, K_k^{(c)}$, $c\ge 2$.
+By the same compactness argument, after passing to a subsequence we may assume that $K_k^{(\ell)} - c_k^{(\ell)}$ tends to some $K_\infty^{(\ell)}$.
+Then we replace $K_k^{(\ell)}$ with $K_\infty^{(\ell)} + c_k^{(\ell)}$ keeping the area and the limit $\lim\limits_{k\to\infty}a(K_k)$. After these manipulations every distance $\dist(K_k^{(\ell)}, K_k^{(\ell')})$ tends to infinity when $\ell\neq\ell'$.
+This means that $a(K_k)$ tends to the sum $\sum_{\ell} a(K_\infty^{(\ell)})$.
+But placing the same sets $K_\infty^{(\ell)}$ in arbitrary fixed position makes average projection length of their union strictly smaller than $\sum_{\ell} a(K_\infty^{(\ell)})$ because of non-trivial overlap of their projections. Hence $\sum_{\ell} a(K_\infty^{(\ell)})$ cannot be equal to $\inf a(K)$ over unions of $n$ convex sets and the case of non-connected $G$ is impossible.
+
+Applying a variational argument similar to our main proof, we see that $\conv K$ has $C^1$-smooth boundary and $\cont K$ is a finite collection of circular arcs of radius
+\[
+R=\frac{2\cdot \vol (K)}{a(K)}.
+\leqno({*})
+\]
+
+Let us show that
+\[a(K) \ge 2\cdot \pi\cdot R,\leqno({*}{*})\]
+and the equality is attained only if $K$ is a disk.
+Indeed, $a(K)\ge a(\cont K)$; the set $\cont K$ is the union of circular arcs of radius $R$ with the sum of angular measures $2\cdot\pi$.
+By the Crofton formula it induces the value at least $2\cdot\pi\cdot R$.
+The set $\partial K \setminus \partial(\conv K)$, if it is nonempty, induces a positive value.
+
+Now observe that $({*})$ and $({*}{*})$ imply the statement in the theorem.
+
+Finally, assume $K$ is a counterexample;
+from the above it has infinitely many connected components.
+Consider its $\eps$-neighborhood $U_\eps$ with $\eps > 0$.
+We have $\vol (U_\eps) \to \vol (K)$ as $\eps \to 0$.
+Further, $a(U_\eps) \to a(K)$ as $\eps \to 0$.
+It follows that the infimum in the problem coincides with the infimum in the class of open bounded sets.
+
+Each bounded open set $K$ has at most countably many connected components, say $C_1,\, C_2,\ldots$, and therefore can be approximated by open sets
+\[K_n \z=C_1\cup\ldots\cup C_n.\]
+We have $\vol(K_n) \to \vol(K)$ as $n \to \infty$ and $a(K_n) \le a(K)$ always.
+It follows that the infimum in the problem coincides with the infimum in the class of open bounded sets with finitely many connected components.
+However, the problem in this class has already been solved.
+\end{proof}
+
+
+{\sloppy
+\def\emph{\textit}
+\printbibliography[heading=bibintoc]
+\fussy
+}
+
+\end{document}
+
+
+\section{Appendix: A more elementary proof in dimension $2$}\label{sec:2DЮ}
 
 Here we outline the proof of Theorem~\ref{thm:main} in the plane that appeared in the first version of this paper on \href{https://arxiv.org/abs/2606.10608v1}{arxiv.org}.
 
@@ -405,7 +490,7 @@ Now consider the problem in the class of sets $K$ with finitely many connected c
 \]
 Let $K_k^1, \ldots, K_k^n$ be the convex connected components of $K_k$; some of these sets may be empty. Note that the perimeters and diameters of all $K_k^m$ are uniformly bounded, since $a(K_k^m)$ are bounded. Choose a center $c_k^m\in K_k^m$. By the Blaschke selection theorem~\cite[Section~6.1]{gruber2007} after passing to a subsequence the convex sets $K_k^m-c_k^m$ will tend to some convex set $K_\infty^m$ as $k\to\infty$ in the Hausdorff metric. Hence we may replace each set $K_k^m$ with the translate $K_\infty^m + c_k^m$ keeping the same total area and keeping the limit $\lim\limits_{k\to\infty}a(K_k)$, since the difference between the projection lengths (of unions of $n$ segments) is bounded by $2n$ times the Hausdorff distance.
 
-So we consider $K_k$ consisting of different translates $K_k^m = K_\infty^m+c_k^m$ of the fixed collection of $n$ convex sets. For a pair of indices $i\neq j$, consider the sequence of distances $\dist(K_k^i, K_k^j)$. Either the sequence tends to infinity, or passing to a subsequence we make it bounded. Doing so for every pair $i\neq j$, we may consider a graph $G$ on  vertices $\{1,2,\ldots,n\}$ consisting of pairs $\{i,j\}$ with bounded $\dist(K_k^i, K_k^j)$ and having $\dist(K_k^i, K_k^j)\to +\infty$ for $\{i,j\}\not\in G$. If $G$ is connected then the sets $K_k$ have uniformly bounded diameter, so after a translation we may assume $c_k^m\to c_\infty^m$ by compactness and have an actual Hausdorff limit $K_k\to K$, which is the minimizer we need. If $G$ is not connected then splitting it to connected components corresponds to nontrivial splitting of $K_k$ into uniformly bounded sets $K_k^{(1)}, \ldots, K_k^{(c)}$, $c\ge 2$. By the same compactness argument, after passing to a subsequence we may assume that $K_k^{(\ell)} - c_k^{(\ell)}$ tends to some $K_\infty^{(\ell)}$. Then we replace $K_k^{(\ell)}$ with $K_\infty^{(\ell)} + c_k^{(\ell)}$ keeping the area and the limit $\lim\limits_{k\to\infty}a(K_k)$. After these manipulations every distance $\dist(K_k^{(\ell)}, K_k^{(\ell')})$ tends to infinity when $\ell\neq\ell'$. This means that $a K_k$ tends to the sum $\sum_{\ell} a K_\infty^{(\ell)}$. But placing the same sets $K_\infty^{(\ell)}$ in arbitrary fixed position makes average projection length of their union strictly smaller than $\sum_{\ell} a K_\infty^{(\ell)}$ because of non-trivial overlap of their projections. Hence $\sum_{\ell} a K_\infty^{(\ell)}$ cannot be equal to $\inf a(K)$ over unions of $n$ convex sets and the case of non-connected $G$ is impossible.
+So we consider $K_k$ consisting of different translates $K_k^m = K_\infty^m+c_k^m$ of the fixed collection of $n$ convex sets. For a pair of indices $i\neq j$, consider the sequence of distances $\dist(K_k^i, K_k^j)$. Either the sequence tends to infinity, or passing to a subsequence we make it bounded. Doing so for every pair $i\neq j$, we may consider a graph $G$ on vertices $\{1,2,\ldots,n\}$ consisting of pairs $\{i,j\}$ with bounded $\dist(K_k^i, K_k^j)$ and having $\dist(K_k^i, K_k^j)\to +\infty$ for $\{i,j\}\not\in G$. If $G$ is connected then the sets $K_k$ have uniformly bounded diameter, so after a translation we may assume $c_k^m\to c_\infty^m$ by compactness and have an actual Hausdorff limit $K_k\to K$, which is the minimizer we need. If $G$ is not connected then splitting it to connected components corresponds to nontrivial splitting of $K_k$ into uniformly bounded sets $K_k^{(1)}, \ldots, K_k^{(c)}$, $c\ge 2$. By the same compactness argument, after passing to a subsequence we may assume that $K_k^{(\ell)} - c_k^{(\ell)}$ tends to some $K_\infty^{(\ell)}$. Then we replace $K_k^{(\ell)}$ with $K_\infty^{(\ell)} + c_k^{(\ell)}$ keeping the area and the limit $\lim\limits_{k\to\infty}a(K_k)$. After these manipulations every distance $\dist(K_k^{(\ell)}, K_k^{(\ell')})$ tends to infinity when $\ell\neq\ell'$. This means that $a K_k$ tends to the sum $\sum_{\ell} a K_\infty^{(\ell)}$. But placing the same sets $K_\infty^{(\ell)}$ in arbitrary fixed position makes average projection length of their union strictly smaller than $\sum_{\ell} a K_\infty^{(\ell)}$ because of non-trivial overlap of their projections. Hence $\sum_{\ell} a K_\infty^{(\ell)}$ cannot be equal to $\inf a(K)$ over unions of $n$ convex sets and the case of non-connected $G$ is impossible.
 
 (b) The set $K \cap \partial(\conv K)$ is the finite union of convex curves. Each curve is an arc of circumference, since otherwise we could replace it with the arc of circumference with the same length. As a result, the area of the set will increase, while its average projection length will remain the same or decrease.
 
@@ -420,7 +505,7 @@ Indeed, let us replace an arc with the radius, say, $R_i$ with another arc with 
 \]
 On the other hand, since $K$ minimizes the functional ${a(K)}/{\sqrt{\vol (K)}}$, one concludes that small variations of the set must satisfy 
 \[
-d\,\left(\frac{a(K)}{\sqrt{\vol (K)}}\right)\ =\ \frac{\d\,a(K)}{\sqrt{\vol(K)}}\, -\, \frac{a(K)}{2\vol(K)\sqrt{\vol(K)}}\ d\vol(K)\ = \ 0,
+d\,\left(\frac{a(K)}{\sqrt{\vol (K)}}\right)\ =\ \frac{d\,a(K)}{\sqrt{\vol(K)}}\, -\, \frac{a(K)}{2\vol(K)\sqrt{\vol(K)}}\ d\vol(K)\ = \ 0,
 \]
 hence
 \[
@@ -442,16 +527,10 @@ and the equality is attained only if $K$ is a union of a disk and several points
 
 \subsection{Other compact sets}
 
-For any compact set $K$ consider its $\eps$-neighborhood $U_\eps$ with $\eps > 0$. We have $\vol (U_\eps) \to \vol (K)$ as $\eps \to 0$. Further, for all $\theta$,\, $\aera(\pi_\theta(U_\eps)) \to \area(\pi_\theta(K))$, and therefore, $a(U_\eps) \to a(K)$ as $\eps \to 0$. It follows that the infimum in the problem coincides with the infimum in the class of open bounded sets.
+For any compact set $K$ consider its $\eps$-neighborhood $U_\eps$ with $\eps > 0$. We have $\vol (U_\eps) \to \vol (K)$ as $\eps \to 0$.
+Further, for all $\theta$, $\area(\pi_\theta(U_\eps)) \to \area(\pi_\theta(K))$, and therefore, $a(U_\eps) \to a(K)$ as $\eps \to 0$.
+It follows that the infimum in the problem coincides with the infimum in the class of open bounded sets.
 
 Each bounded open set $K$ has at most countably many connected components, say $C_1,\, C_2,\ldots$, and therefore can be approximated by open sets $K_n =\cup_{k=1}^n C_k$. We have $\vol(K_n) \to \vol(K)$ as $n \to \infty$ and $a(K_n) \le a(K)$ always. It follows that the infimum in the problem coincides with the infimum in the class of open bounded sets with finitely many connected components.
 
 However, the problem in this class has already been solved in the previous section, implying the inequality.
-
-{\sloppy
-\def\emph{\textit}
-\printbibliography[heading=bibintoc]
-\fussy
-}
-
-\end{document}
