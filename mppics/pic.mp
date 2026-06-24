@@ -36,9 +36,6 @@ path p[];
 
 
 p1=(-1,0)*u{(1,0)}..(.2,.1)*u{(1,0)}..(1,0)*u{(1,0)}..(0,1)*u{(-1,0)}..cycle;
-draw p1;
-draw (-1,0)*u--(1,0)*u dashed evenly;
-
 
 for i = 0 upto n-1:
 t := (length p1)*i/n;
@@ -53,6 +50,10 @@ for i = 1 upto n-1:
 endfor
 .. cycle;
 
+fill p2 withcolor .8;
+fill p1 withcolor .6;
+draw p1;
+draw (-1,0)*u--(1,0)*u dashed evenly;
 draw p2;
 draw (-1*u,-d)--(1*u,-d) dashed evenly;
 
@@ -66,8 +67,8 @@ draw z.s--z.ss penhair;
 
 dOt z.s, z.ss;
 
-label.top(btex $\partial K$ etex, (.2,.1)*u);
-label.top(btex $\partial K_s$ etex, (.2,.1)*u+(0,-d));
+label.top(btex $K$ etex, (.2,.1)*u);
+label.top(btex $K_s$ etex, (.2,.1)*u+(0,-d));
 label.bot(btex $p$ etex, z.s+(-1,-1));
 label.llft(btex $x$ etex, z.ss);
 label.lft(btex $W$ etex, (2,0)+z.o+((z.s-z.o) rotated -30));
