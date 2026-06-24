@@ -58,7 +58,7 @@ On the other hand, equality holds for the union of a ball with any set of vanish
 
 By \cite[3.3.13]{federer} we have
 \[\frac{n\cdot\omega_n}{\omega_{n-1}}\cdot \fav_{n-1}K
-\le\area(\partial K),\]
+\le\mathcal H^{n-1} \partial K,\]
 where $\omega_n$ denotes the volume of the $n$-dimensional unit ball.
 Moreover, by Crofton's formula the equality holds if $K$ is convex.
 Therefore, for convex sets our theorem is just a reformulation of the standard isoperimetric inequality,
@@ -194,11 +194,11 @@ Note also that any hyperplane projection of $K_s$ is the closed $s$-neighborhood
 Since every linear function attains its maximum on $\conv K_s$ in a point of $K_s$, the normals of $\cont K_s$ constitute the whole sphere.
 Hence,
 \[
-\int\limits_{x\in \cont K_s}G(x)=\area \SSS^{n-1}=n\cdot\omega_n.
+\int\limits_{x\in \cont K_s}G(x)=\mathcal H^{n-1} \SSS^{n-1}=n\cdot\omega_n.
 \]
 Therefore, the inequality
 \[
-G(x)\ge \frac{n\cdot\omega_n}{\area (\cont K_s)}
+G(x)\ge \frac{n\cdot\omega_n}{\mathcal H^{n-1} (\cont K_s)}
 \]
 holds for $x$ in a set of positive measure of $\cont K_s$.
 
@@ -208,7 +208,7 @@ From the inclusion $\cont K_s\subset K_s$ it follows that
 \]
 Further, since $\cont K_s\subset \partial (\conv K_s)$, the Crofton formula implies
 \[
-\area (\cont K_s)\le \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot \fav_{n-1}(\cont K_s);
+\mathcal H^{n-1} (\cont K_s)\le \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot \fav_{n-1}(\cont K_s);
 \]
 the constant $\tfrac{n\cdot\omega_n}{\omega_{n-1}}$ is optimal; we have equality if $\cont K_s$ is a closed convex hypersurface.
 
@@ -238,12 +238,12 @@ The bound on the mean curvature follows from the inequality of arithmetic and ge
 Now assume $\mathcal H^n K\ne 0$; so, $\conv K$ is nondegenerate.
 If $\partial K\z{\not\supset} \partial(\conv K)$, then the Crofton formula implies
 \[
-\area (\cont K) < \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot \fav_{n-1}(\cont K).
+\mathcal H^{n-1} (\cont K) < \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot \fav_{n-1}(\cont K).
 \]
 Note that $\cont K_s$ is the set of points $x\in \partial(\conv K_s)=\partial (\conv K)_s$ whose closest point $p$ in $\conv K$ belongs to $\cont K$.
 
-Let us compare $\area(\cont K_s)$ and $\area(\cont K)$ using the Crofton formula;
-namely, if $X$ lies in the boundary of a convex set, then $\area X$ is the integral of the number of points in $X\cap \ell$ over straight lines $\ell$.
+Let us compare $\mathcal H^{n-1}(\cont K_s)$ and $\mathcal H^{n-1}(\cont K)$ using the Crofton formula;
+namely, if $X$ lies in the boundary of a convex set, then $\mathcal H^{n-1} X$ is the integral of the number of points in $X\cap \ell$ over straight lines $\ell$.
 Almost any line $\ell$ either does not intersect $\partial(\conv K)$ or intersects it in two smooth points of $\partial(\conv K)$.
 Consider only such lines, there are the following cases:
 
@@ -261,18 +261,18 @@ Therefore, the corresponding point of $\ell\cap \partial(\conv K_s)$ does not be
 Case 4: Both points of $\ell\cap\partial(\conv K)$ are in $\cont K$.
 This does not affect the conclusion below.
 
-In all the cases, as $s\to +0$, the integrand of the Crofton formula for $\area(\cont K_s)$ almost everywhere has limit superior less than or equal to the integrand of the Crofton formula for $\area(\cont K)$.
+In all the cases, as $s\to +0$, the integrand of the Crofton formula for $\mathcal H^{n-1}(\cont K_s)$ almost everywhere has limit superior less than or equal to the integrand of the Crofton formula for $\mathcal H^{n-1}(\cont K)$.
 By Fatou's lemma,
-\[\varlimsup_{s\to +0} \area(\cont K_s) \le \area(\cont K).\]
+\[\varlimsup_{s\to +0} \mathcal H^{n-1}(\cont K_s) \le \mathcal H^{n-1}(\cont K).\]
 
-%Consider the function $\rho\:s\mapsto \area (\cont K_s)$. Combining the coarea formula and local Steiner's formula \cite[5.2.1]{schneider} we get that $t\mapsto \int_0^t \rho(s)ds$ is a polynomial, so $\rho$ is itself a polynomial almost everywhere. Further, since the nearest-point projection is $1$-Lipschitz, we get that $\rho$ is nondecreasing, so it is a polynomial everywhere at least for $s>0$. 
+%Consider the function $\rho\:s\mapsto \mathcal H^{n-1} (\cont K_s)$. Combining the coarea formula and local Steiner's formula \cite[5.2.1]{schneider} we get that $t\mapsto \int_0^t \rho(s)ds$ is a polynomial, so $\rho$ is itself a polynomial almost everywhere. Further, since the nearest-point projection is $1$-Lipschitz, we get that $\rho$ is nondecreasing, so it is a polynomial everywhere at least for $s>0$.
 
 %Finally, $\cont K_s$ are compact subsets lying on convex surfaces and $\cont K_s\to \cont K$ as $s\to 0$ in the sense of Hausdorff, which implies that $\rho$ is continuous at $s=0$.
 %\textbf{Hausdorff convergence need not imply the convergence of Haudorff measures, so we need a more careful explanation here.}
 
 It follows that
 \[
-\area (\cont K_s)\le \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot \fav_{n-1}(\cont K)-\delta,
+\mathcal H^{n-1} (\cont K_s)\le \frac{n\cdot\omega_n}{\omega_{n-1}}\cdot \fav_{n-1}(\cont K)-\delta,
 \]
 for some fixed $\delta>0$ and any small $s>0$.
 Now the argument above with $\fav_{n-1}(\cont K_s)$ replaced with $\fav_{n-1}(\cont K)\le \fav_{n-1}K$ implies the statement for some $\eps<0$ depending on $\delta$.
@@ -323,7 +323,7 @@ Choose a unit vector $w$; denote by $L$ and $L_t$ the projections of $K$ and $K_
 The $t$-neighborhood of $L_t$ is contained in the projection of $C$, so $L_t$ is at distance at least $t$ from the boundary of the projection of $C$.
 This allows us to estimate
 \[
-\area L-\area L_t
+\mathcal H^{n-1} L-\mathcal H^{n-1} L_t
 \ge
 \int\limits_{u\in \SSS^{n-2}}
 \int\limits_{r\in [0,t]}
@@ -561,7 +561,7 @@ and the equality is attained only if $K$ is a union of a disk and several points
 \subsection{Other compact sets}
 
 For any compact set $K$ consider its $\eps$-neighborhood $U_\eps$ with $\eps > 0$. We have $\mathcal H^n (U_\eps) \to \mathcal H^n (K)$ as $\eps \to 0$.
-Further, for all $\theta$, $\area(\pi_\theta(U_\eps)) \to \area(\pi_\theta(K))$, and therefore, $a(U_\eps) \to a(K)$ as $\eps \to 0$.
+Further, for all $\theta$, $\mathcal H^{n-1}(\pi_\theta(U_\eps)) \to \mathcal H^{n-1}(\pi_\theta(K))$, and therefore, $a(U_\eps) \to a(K)$ as $\eps \to 0$.
 It follows that the infimum in the problem coincides with the infimum in the class of open bounded sets.
 
 Each bounded open set $K$ has at most countably many connected components, say $C_1,\, C_2,\ldots$, and therefore can be approximated by open sets $K_n =\cup_{k=1}^n C_k$. We have $\mathcal H^n(K_n) \to \mathcal H^n(K)$ as $n \to \infty$ and $a(K_n) \le a(K)$ always. It follows that the infimum in the problem coincides with the infimum in the class of open bounded sets with finitely many connected components.
