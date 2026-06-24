@@ -29,9 +29,9 @@ We prove an isoperimetric inequality in terms of the mean shadow area.
 \section{Introduction}
 
 The $k$-dimensional Hausdorff measure will be denoted by $\mathcal H^k$;
-we will use the standard normalization, so $k$-dimensional unit cube has unit $\mathcal H^k$-measure.
+we will use the standard normalization, so the $k$-dimensional unit cube has unit $\mathcal H^k$-measure.
 
-Given a subset $K\subset \RR^n$, let us denote by $\fav_k(K)$ its $k$-dimensional \emph{mean shadow area}; that is, the average of $\mathcal H^k$-measures of the orthogonal projections of $K$ onto $k$-dimensional  subspaces in $\RR^n$.
+Given a subset $K\subset \RR^n$, let us denote by $\fav_k K$ its $k$-dimensional \emph{mean shadow area}; that is, the average of $\mathcal H^k$-measures of the orthogonal projections of $K$ onto $k$-dimensional subspaces in $\RR^n$.
 The mean shadow area is defined for any Borel set; see Proposition~\ref{prop:def}.
 The $1$-dimensional mean shadow area $\fav_1K$ is also known as \emph{Favard length}; see \cite{Laba2012,Damian2024}.
 
@@ -58,7 +58,7 @@ On the other hand, equality holds for the union of a ball with any set of vanish
 
 By \cite[3.3.13]{federer} we have
 \[\frac{n\cdot\omega_n}{\omega_{n-1}}\cdot \fav_{n-1}K
-\le\mathcal H^{n-1} \partial K,\]
+\le\mathcal H^{n-1} (\partial K),\]
 where $\omega_n$ denotes the volume of the $n$-dimensional unit ball.
 Moreover, by Crofton's formula the equality holds if $K$ is convex.
 Therefore, for convex sets our theorem is just a reformulation of the standard isoperimetric inequality,
@@ -72,11 +72,7 @@ Then
 r_1(K)\ge r_2(K)\ge\dots\ge r_n(K).
 \]
 
-Moreover, given a sequence
-\[
-r_1\ge r_2\ge\dots\ge r_n
-\]
-there is a compact set $K\subset \RR^n$ with $r_i(K)$ arbitrarily close to $r_i$ for each $i$.
+Moreover, given a sequence $r_1\ge r_2\ge\dots\ge r_n\ge 0$, there is a compact set $K\subset \RR^n$ with $r_i(K)$ arbitrarily close to $r_i$ for each $i$.
 \end{thm}
 
 The first part of the corollary is obtained by averaging the inequality in Theorem~\ref{thm:main}.
@@ -84,7 +80,7 @@ The second part is done by nearly explicit construction.
 
 Note that for convex sets, a stronger statement follows from the Alexandrov--Fenchel inequality, that is, from the logarithmic concavity of the mixed volumes
 \[
-v_k=\mathcal H^n(\underbrace{K,\ldots,K}_k,\underbrace{B,\ldots,B}_{n-k})
+v_k=V(\underbrace{K,\ldots,K}_k,\underbrace{B,\ldots,B}_{n-k})
 \]
 as a function of $k$.
 
@@ -105,17 +101,18 @@ In the case of equality, it is plausible that $E$ coincides with a ball up to me
 The problem was motivated by Newton's minimal resistance problem \cite{N}, which can be described as follows.
 Consider a body that moves in a rarefied medium of particles, so the mutual interaction of the particles can be neglected.
 One is interested in minimizing the time-averaged value of the force of resistance of the medium.
-If we assume that the body moves in a random direction without rotation and the body-particle collisions are completely inelastic, so that each particle, after the collision, loses its relative velocity and remains forever near the body, then the problem is reduced to our isoperimetric problem.
+
+Our isoperimetric problem arises if one assumes that the body moves in a random direction without rotation and that the collisions between the body and the particles are completely inelastic: after colliding with the body, each particle loses its relative velocity and remains forever near the body.
 This problem was also posed by Guillaume Aubrun \cite{guillaume}.
 
 On the other hand, if the collisions are perfectly elastic, then the problem amounts to camouflaging in billiards.
-This problem is more difficult; at present, only lower bounds for this value are found; see \cite{cam1,cam2}.
+This problem is more difficult; at present, only lower bounds for this value have been found; see \cite{cam1,cam2}.
 Additionally, it is known how to construct a body invisible in $m$ directions $(m=1,\,2,\ldots)$, provided that the angles between them are multiples of $\pi/m$ \cite{invisNpoints}.
 Some other results are known about invisibility in several directions or from several points in $\RR^2$ and $\RR^3$ \cite{book2012,fractal,invis2points}.
 
 \paragraph{About the proof.}
 \emph{Almgren's frontier} $\cont K$ of a set $K\subset \RR^n$ will be defined
-as the intersection of its boundary and boundary of its convex hull $\conv K$.
+as the intersection of its boundary and the boundary of its convex hull $\conv K$.
 We observe that the outer normals to supporting hyperplanes to $\conv K$ at points in $\cont K$ constitute the whole sphere.
 Further, by monotonicity of mean shadow area with respect to inclusion, we have $\fav_{n-1}(\cont K)\le \fav_{n-1}K$.
 
@@ -127,11 +124,9 @@ This type of argument was first used by Frederick Almgren in his proof of optima
 Our proof might serve as a more elementary illustration of this idea.
 
 \paragraph{Structure of the paper.}
-In Section~\ref{sec:borel} we show that mean shadow area is defined for any Borel set and prove the corollary modulo the main theorem.
+In Section~\ref{sec:borel} we show that mean shadow area is defined for any Borel set and prove Corollary~\ref{cor:borel} modulo the main theorem.
 In the following section we prove the main theorem.
-
-In Section~\ref{sec:k-shadows}, we comment on the $k$-dimensional version of mean shadow area.
-
+In Section~\ref{sec:k-shadows}, we prove Corollary~\ref{cor:k-shadows}.
 In the final section we sketch a more elementary proof of the 2-dimensional case;
 it is based on the observation that for a connected compact set $K\subset\RR^2$ we have
 \[\fav_1K=\fav_1(\conv K)
@@ -172,17 +167,20 @@ Let us denote by $\kappa=\kappa(K)$ the normal curvature of $\partial B$, so $\t
 
 \begin{thm}{Lemma}\label{lem:support}
 Let $K$ be a compact set in $\RR^n$.
-Given $\eps>0$, there is a strictly convex body $C$ with smooth boundary $\partial C$ such that $C\supset K$,
-$\partial C\cap K$ contains a single point, say $p$,
-and the mean curvature of $\partial C$ at $p$ is at least $(n-1)\cdot (\kappa(K)\z-\eps)$.
+Given $\eps>0$, there is a strictly convex body $C$ with smooth boundary $\partial C$ such that
+\begin{enumerate}[(i)]
+ \item $C\supset K$,
+ \item $\partial C\cap K$ contains a single point, say $p$, and
+ \item the mean curvature of $\partial C$ at $p$ is at least $(n-1)\cdot (\kappa(K)\z-\eps)$.
+\end{enumerate}
 Moreover, the same holds for some $\eps<0$ unless $\partial K\supset \partial(\conv K)$ or $\mathcal H^n K=0$;
 here $\conv K$ denotes the convex hull of $K$.
 \end{thm}
 
 The second part of the lemma (with $\eps<0$) will be needed in the proof of the equality case.
-One can prove that it holds if $K$ is not a ball, but we state only the weaker version needed below.
+One can prove that it holds if $K$ is not a ball, but we state only the weaker version needed in our proof.
 
-Let us define \emph{Almgren's frontier} of $K\subset \RR^n$ as
+Let us define \emph{Almgren's frontier} of a subset $K\subset \RR^n$ as
 \[\cont K=\partial K\cap\partial(\conv K).\]
 
 \parit{Proof for $\eps>0$.}
@@ -227,7 +225,7 @@ Note that all the curvatures of $\partial \conv K_s$ were at most $\tfrac1s$, so
 Let $W$ be the inner $s$-equidistant hypersurface of $W_s$.
 Note that $W$ touches $K$ in a single point, say $p$, which is the nearest-point projection of $x$ to $K$.
 From the above observation on curvatures it follows that $W$ is still convex and smooth at $p$.
-It remains to take a small smooth closed strictly convex neighborhood $N$ of $\conv K$, chop it by $W$ and smooth the resulting body near the corner $W\cap \partial N$ while keeping it strictly convex.
+It remains to take a small smooth closed strictly convex neighborhood $N$ of $\conv K$, chop it by $W$ and smooth the resulting body near the corner $W\cap \partial N$ while keeping strict convexity.
 The hypersurface $W$ was already strictly convex, so $C$ is strictly convex in a neighborhood of $p$.
 It may be made strictly convex by smoothing its support function outside of the corresponding neighborhood of the normal at $p$.
 
@@ -247,18 +245,18 @@ namely, if $X$ lies in the boundary of a convex set, then $\mathcal H^{n-1} X$ i
 Almost any line $\ell$ either does not intersect $\partial(\conv K)$ or intersects it in two smooth points of $\partial(\conv K)$.
 Consider only such lines, there are the following cases:
 
-Case 1: Assume that $\ell$ has no intersection with $\conv K$.
+Case 1: $\ell$ has no intersection with $\conv K$.
 Then $\ell$ does not intersect $\conv K_s$ either for sufficiently small $s$.
 
-Case 2: Assume that both points of $\ell\cap\partial(\conv K)$ do not belong to $\cont K$.
+Case 2: both points of $\ell\cap\partial(\conv K)$ do not belong to $\cont K$.
 Then they both are at positive distance from $\cont K$ and $\ell$ does not intersect $\cont K_s$ for sufficiently small $s$.
 Indeed, the two points of intersection $\ell\cap\partial(\conv K_s)$ tend to the two points of intersection $\ell\cap \partial(\conv K)$ as $s\to+0$, while $\cont K_s$ is a distance at most $s$ from $\cont K$.
 
-Case 3: Assume that one of the points of $\ell\cap\partial(\conv K)$ does not belong to $\cont K$.
+Case 3: one of the points of $\ell\cap\partial(\conv K)$ does not belong to $\cont K$.
 Then this point is at positive distance from $\cont K$.
 Therefore, the corresponding point of $\ell\cap \partial(\conv K_s)$ does not belong to $\cont K_s$ for sufficiently small $s$ as in the previous case.
 
-Case 4: Both points of $\ell\cap\partial(\conv K)$ are in $\cont K$.
+Case 4: both points of $\ell\cap\partial(\conv K)$ are in $\cont K$.
 This does not affect the conclusion below.
 
 In all the cases, as $s\to +0$, the integrand of the Crofton formula for $\mathcal H^{n-1}(\cont K_s)$ almost everywhere has limit superior less than or equal to the integrand of the Crofton formula for $\mathcal H^{n-1}(\cont K)$.
@@ -315,7 +313,7 @@ Then
 &\oint\limits_{u\in \SSS^{n-1}}
 \int\limits_{r\in [0,t]} \phi(u,r),
 \end{align*}
-where $\oint$ denotes the average along the sphere and $J(u,r)$ is the Jacobian of $\xi$ at $(u,r)$.
+where $\oint$ denotes the average along the sphere, and $J(u,r)$ is the Jacobian of $\xi$ at $(u,r)$.
 The last equality follows since $J(u_0,0)=1/G(p)$ and if $r\le t$ for small $t>0$, then $\phi(u,r)\ne 0$ only if $u$ is in a sufficiently small neighborhood of $u_0$, so we may approximate the Jacobian by its value at $(u_0,0)=\xi^{-1}(p)$.
 
 Let us turn to hyperplane projections.
@@ -347,7 +345,7 @@ The last equality can be understood by approximating $C$ by the graph of a quadr
 Note that $\tfrac{1}{n-1}\cdot H(p)$ is the average of $k(w')$ for $w'\perp u_0$.
 Therefore, taking the average, we get
 \[
-\fav_{n-1}K-\fav_{n-1}(K_t)\ge \frac {H(p)\cdot \omega_{n-1}\cdot(1+o_t(1))}{ G(p)}
+\fav_{n-1}K-\fav_{n-1}K_t\ge \frac {H(p)\cdot \omega_{n-1}\cdot(1+o_t(1))}{ G(p)}
 \cdot\oint\limits_{u\in \SSS^{n-1}}
 \int\limits_{r\in [0,t]}
 \phi(u,r).
@@ -368,7 +366,7 @@ After this procedure, $K$ remains compact, its volume does not change, while mea
 Moreover, now every nonempty intersection of $K$ with an open set has positive volume.
 This ensures that the volume cut from $K$ by the procedure of Lemma~\ref{lem:variation} will be positive.
 
-Applying Lemma~\ref{lem:variation} to $C$ and $p$ provided by Lemma~\ref{lem:support}, we get a compact set $K'\subset K$ such that
+Applying Lemma~\ref{lem:variation} to $C$ and $p$ provided by Lemma~\ref{lem:support}, we get a compact set $K'=K_t\subset K$ for small $t>0$ such that
 \[
 s_\delta(K')>s_\delta(K).\leqno({*})
 \]
@@ -400,7 +398,7 @@ Indeed, choose an open $U\supset M$ such that $\mathcal H^n U\approx\mathcal H^n
 Since the sets in the chain are compact, some $L\in\mathcal Z$ lies in $U$.
 Hence $\mathcal H^n L\le\mathcal H^n U$;
 thus we can choose $L\in\mathcal Z$ such that $\mathcal H^n L$ is arbitrarily close to $\mathcal H^n M$.
-Since $L\supset M$, we also have $\fav_{n-1}(L)\ge \fav_{n-1}(M)$, and hence $({*}{*})$.
+Since $L\supset M$, we also have $\fav_{n-1}L\ge \fav_{n-1}M$, and hence $({*}{*})$.
 
 Applying Zorn's lemma to the compact subsets of $K$ satisfying $s_\delta(L)\z\ge s_\delta(K)$, we get an inclusion-minimal such set $M$.
 But the above argument applied to $M$ in place of $K$ contradicts the minimality.
@@ -421,8 +419,9 @@ r_1(K)\ge r_2(K)\ge\dots\ge r_n(K),
 \]
 consider $k$-dimensional projection as a sequence of codimension $1$ projections and averaging over them all.
 
-Let us approximate a ball by a polyhedron $P$ and then consider the $k$-skeleton $P^{(k)}$ of $P$.
-This skeleton has $r_m=0$ for all $m>k$ and $r_m$ close to the original radius for $m\le k$.
+Let us approximate an $r$-ball by a polyhedron $P$ and then consider the $k$-skeleton $P^{(k)}$ of $P$.
+Note that $r_i(P^{(k)})=0$ for $i>k$
+and $r_i(P^{(k)})\approx r$ for $i\le k$.
 Thus we approximate any sequence of the form
 \[(\underbrace{r,\ldots,r}_k,\underbrace{0,\ldots,0}_{n-k}).\]
 An arbitrary decreasing sequence can be approximated by a union of such $k$-dimensional sets for $k=1,\ldots,n$ placed sufficiently far apart from each other to make the average projection almost additive.
@@ -432,7 +431,7 @@ This proves the second part.
 \section{2-dimensional case}\label{sec:2D}
 
 Here we outline a more elementary proof of \ref{thm:main} in the 2-dimensional case.
-Note that $\fav_1(K)$ is the average projection length, and it is also  known as the Favard length.
+Note that $\fav_1(K)$ is the average projection length; we will call it the Favard length.
 
 \begin{proof}[Sketch of 2-dimensional case of \ref{thm:main}]
 Suppose that $K\subset \RR^2$ is connected.
@@ -441,29 +440,32 @@ Since each projection of $K$ coincides with the corresponding projection of its 
 Since $\mathcal H^2K \le \mathcal H^2(\conv K)$, the problem reduces to the classical isoperimetric problem: minimize the perimeter of a convex set with fixed area.
 In this case, the equality holds only for disks.
 
-Now consider the case when $K\subset \RR^2$ has a finite number of connected components, say $n$.
+Now consider the case when $K\subset \RR^2$ has a finite number of connected components, say $N$.
 Repeating the argument above, one can assume that each connected component of $K$ is convex.
 
-Let us show that in the class of sets with fixed area and no more than $n$ connected components, there is a set that minimizes the Favard length.
+Let us show that in the class of sets with fixed area and no more than $N$ connected components, there is a set that minimizes the Favard length.
 
 Consider a sequence of sets $K_k$ with prescribed area and with $\fav_1(K_k)$ tending to the lower bound.
-Let $K_k^1, \ldots, K_k^n$ be the convex connected components of $K_k$; some of these sets may be empty.
-Note that the perimeters and diameters of all $K_k^m$ are uniformly bounded, since $\fav_1K_k^m$ are bounded.
+Let $K_k^1, \ldots, K_k^N$ be the convex connected components of $K_k$; some of these sets may be empty.
+Note that the perimeters and diameters of all $K_k^m$ are uniformly bounded, since $\fav_1K_k^m$ is uniformly bounded.
 Choose a center $c_k^m\in K_k^m$.
-By the Blaschke selection theorem~\cite[Section~6.1]{gruber2007}, after passing to a subsequence the convex sets $K_k^m-c_k^m$ will tend to some convex set $K_\infty^m$ as $k\to\infty$ in the Hausdorff metric.
-Hence we may replace each set $K_k^m$ with the translate $K_\infty^m + c_k^m$ keeping the same total area and keeping the limit $\lim\limits_{k\to\infty}\fav_1(K_k)$, since the difference between the projection lengths (of unions of $n$ segments) is bounded by $2\cdot n$ times the Hausdorff distance.
+By the Blaschke selection theorem~\cite[Section~6.1]{gruber2007}%??? может лучше на Бляшке сослаться --- хорошая книга...\cite[II § 18]{blaschke}
+, after passing to a subsequence the convex sets $K_k^m-c_k^m$ will tend to some convex set $K_\infty^m$ as $k\to\infty$ in the Hausdorff metric.
+Hence we may replace each set $K_k^m$ with the translate $K_\infty^m + c_k^m$ keeping the same total area and keeping the limit of $\fav_1(K_k)$.
+Indeed, the difference between the projection lengths (of unions of $N$ segments) is bounded by $2\cdot N$ times the Hausdorff distance.
 
-Consider $K_k$ consisting of different translates $K_k^m = K_\infty^m+c_k^m$ of the fixed collection of $n$ convex sets.
+Consider $K_k$ consisting of different translates $K_k^m = K_\infty^m+c_k^m$ of the fixed collection of $N$ convex sets.
 For a pair of indices $i\neq j$, consider the sequence of distances $\dist(K_k^i, K_k^j)$. Either the sequence tends to infinity, or passing to a subsequence we make it bounded.
-Doing so for every pair $i\neq j$, we may consider a graph $G$ on vertices $\{1,2,\ldots,n\}$ consisting of pairs $\{i,j\}$ with bounded $\dist(K_k^i, K_k^j)$ and having $\dist(K_k^i, K_k^j)\to +\infty$ for $\{i,j\}\z\notin G$.
+Doing so for every pair $i\neq j$, we may consider a graph $G$ on vertices $\{1,2,\ldots,N\}$ consisting of pairs $\{i,j\}$ with bounded $\dist(K_k^i, K_k^j)$ and having $\dist(K_k^i, K_k^j)\to +\infty$ for $\{i,j\}\z\notin G$.
 If $G$ is connected then the sets $K_k$ have uniformly bounded diameter, so after a translation we may assume $c_k^m\to c_\infty^m$ by compactness and have an actual Hausdorff limit $K_k\to K$, which is the minimizer we need.
 
-If $G$ is not connected then splitting it to connected components corresponds to nontrivial splitting of $K_k$ into uniformly bounded sets $K_k^{(1)}, \ldots, K_k^{(c)}$, $c\ge 2$.
+If $G$ is not connected, then splitting it into connected components corresponds to nontrivial splitting of $K_k$ into uniformly bounded sets $K_k^{(1)}, \ldots, K_k^{(c)}$, $c\ge 2$.
 By the same compactness argument, after passing to a subsequence we may assume that $K_k^{(\ell)} - c_k^{(\ell)}$ tends to some $K_\infty^{(\ell)}$.
 Then we replace $K_k^{(\ell)}$ with $K_\infty^{(\ell)} \z+ c_k^{(\ell)}$ keeping the area and the limit $\lim\limits_{k\to\infty}\fav_1(K_k)$.
 After these manipulations every distance $\dist(K_k^{(\ell)}, K_k^{(\ell')})$ tends to infinity when $\ell\neq\ell'$.
 This means that $\fav_1(K_k)$ tends to the sum $\sum_{\ell} \fav_1(K_\infty^{(\ell)})$.
-But placing the same sets $K_\infty^{(\ell)}$ in arbitrary fixed position makes average projection length of their union strictly smaller than $\sum_{\ell} \fav_1(K_\infty^{(\ell)})$ because of non-trivial overlap of their projections. Hence $\sum_{\ell} \fav_1(K_\infty^{(\ell)})$ cannot be equal to $\inf \fav_1K$ over unions of $n$ convex sets and the case of non-connected $G$ is impossible.
+But placing the same sets $K_\infty^{(\ell)}$ in arbitrary fixed position makes average projection length of their union strictly smaller than $\sum_{\ell} \fav_1(K_\infty^{(\ell)})$ because of non-trivial overlap of their projections.
+Hence $\sum_{\ell} \fav_1(K_\infty^{(\ell)})$ cannot be equal to $\inf \fav_1K$ over unions of $N$ convex sets and the case of non-connected $G$ is impossible.
 
 Applying a variational argument similar to our main proof, we see that $\conv K$ has $C^1$-smooth boundary and $\cont K$ is a finite collection of circular arcs of radius
 \[
@@ -486,9 +488,9 @@ We have $\mathcal H^2 (U_\eps) \to \mathcal H^2 K$ as $\eps \to 0$.
 Further, $\fav_1(U_\eps) \to \fav_1 K$ as $\eps \to 0$.
 It follows that the infimum in the problem coincides with the infimum in the class of open bounded sets.
 
-Each bounded open set $K$ has at most countably many connected components, say $C_1,\, C_2,\ldots$, and therefore can be approximated by open sets
-\[K_n \z=C_1\cup\ldots\cup C_n.\]
-We have $\mathcal H^2(K_n) \to \mathcal H^2K$ as $n \to \infty$ and $\fav_1K_n \le \fav_1K$ always.
+Each bounded open set $K$ has at most countably many connected components, say $C_1, C_2,\ldots$, and therefore can be approximated by open sets
+\[K_i =C_1\cup\ldots\cup C_i.\]
+We have $\mathcal H^2 K_i  \to \mathcal H^2K$ as $i \to \infty$ and $\fav_1K_i \le \fav_1K$ always.
 It follows that the infimum in the problem coincides with the infimum in the class of open bounded sets with finitely many connected components.
 However, the problem in this class has already been solved.
 \end{proof}
