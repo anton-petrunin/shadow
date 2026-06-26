@@ -98,6 +98,19 @@ In the case of equality, it is plausible that $E$ coincides with a ball up to me
 
 \medskip
 
+Note that $\fav_k K$ is proportional to the $L^1$-norm of the $\mathcal H^k$-measure of the orthogonal projection of $K$ onto a $k$-dimensional subspace of $\mathbb{R}^n$, viewed as a function of the projection direction. Let $\fav_k^p K$ denote the $L^p$-norm of the projection measure, $1 < p \le +\infty$. By Holder’s inequality, $\fav_k^p K$ is greater than or equal to $\fav_k K$ times a positive constant, and the inequality becomes the equality only when all projection measures coincide (up to a set of measure zero). As a result, we obtain the following corollary from Theorem \ref{thm:main}.
+
+\begin{thm}{Corollary}\label{cor:Lp}
+Under the conditions of Corollary \ref{cor:borel},
+\[
+\mathcal H^n E= \mathcal H^n B
+\quad\Rightarrow\quad
+\fav_{n-1}^p E\ge \fav_{n-1}^p B.
+\]
+\end{thm}
+
+\medskip
+
 The problem was motivated by Newton's minimal resistance problem \cite{N}, which can be described as follows.
 Consider a body that moves in a rarefied medium of particles, so the mutual interaction of the particles can be neglected.
 One is interested in minimizing the time-averaged value of the force of resistance of the medium.
@@ -404,10 +417,10 @@ Applying Zorn's lemma to the compact subsets of $K$ satisfying $s_\delta(L)\z\ge
 But the above argument applied to $M$ in place of $K$ contradicts the minimality.
 
 Now assume that equality holds for $K$.
-Arguing as above we can assume that nonempty intersections of $K$ with open sets have positive volume.
+After subtracting a set of volume zero we can assume that nonempty intersections of $K$ with open sets have positive volume.
 After that we need to show that $K$ is congruent to $B$.
 If $\partial K\supset \partial(\conv K)$, then it follows from the equality case in the standard isoperimetric inequality.
-Otherwise, arguing as above and taking into account the second part of \ref{lem:support}, we can find a compact set $K'\subset K$ that contradicts the main part of the theorem and arrive at a contradiction.
+Otherwise, repeating the above argument with $\delta=0$ instead of $\delta>0$ and taking into account the second part of \ref{lem:support}, we produce a compact subset $K'\subset K$ that contradicts the already proved inequality and arrive at a contradiction.
 \end{proof}
 
 \section{Mean $k$-dimensional shadows}\label{sec:k-shadows}
