@@ -22,8 +22,10 @@ beginfig(10)
 save u;
 u:=1cm;
 
-fill circle(origin,u) withcolor 0;
+
 draw (-2,0)*u--(2,0)*u penbold;
+fill circle(origin,u) withcolor .6;
+draw circle(origin,u) penbold;
 
 endfig;
 
