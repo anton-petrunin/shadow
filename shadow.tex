@@ -3,7 +3,7 @@
 \usepackage{hyperref}
 
 \def\thetitle{Shadow isoperimetry}
-\def\theauthors{Roman Karasev\thanks{Institute for Information Transmission Problems RAS, Bolshoy Karetny per. 19, Moscow, Russia 127994} \and Anton Petrunin\thanks{Department of Mathematics, Pennsylvania State University, University Park, PA 16802, USA} \and Alexander Plakhov\thanks{Center for R{\&}D in Mathematics and Applications, Department of Mathematics, University of Aveiro, Portugal and Institute for Information Transmission Problems RAS, Bolshoy Karetny per. 19, Moscow, Russia 127994}}
+\def\theauthors{Roman Karasev, Anton Petrunin, and Alexander Plakhov}
 
 \hypersetup{colorlinks=true,
 citecolor=black,
@@ -21,6 +21,28 @@ pdfauthor={\theauthors}
 \author{\theauthors}
 \date{}
 \maketitle
+
+\newcommand{\Addresses}{{\bigskip\footnotesize
+
+\noindent  Roman Karasev,
+\par\nopagebreak
+\textsc{Institute for Information Transmission Problems RAS, Bolshoy Karetny per. 19, Moscow, Russia 127994.}
+
+\medskip
+
+\noindent   Anton Petrunin,
+\par\nopagebreak
+ \textsc{Math. Dept. PSU, University Park, PA 16802, USA.}
+  %\par\nopagebreak\textit{Email}: \texttt{petrunin@math.psu.edu}
+\medskip
+
+\noindent Alexander Plakhov,
+\par\nopagebreak
+\textsc{Center for R{\&}D in Mathematics and Applications, Department of Mathematics, University of Aveiro, Portugal.}
+\par\nopagebreak
+\textsc{Institute for Information Transmission Problems RAS, Bolshoy Karetny per. 19, Moscow, Russia 127994.}
+
+}}
 
 \begin{abstract}
 We prove an isoperimetric inequality in terms of the mean shadow area.
@@ -526,12 +548,16 @@ It follows that the infimum in the problem coincides with the infimum in the cla
 However, the problem in this class has already been solved.
 \end{proof}
 
+\parbf{Acknowledgments.}
+Anton Petunin was partially supported by the National Science Foundation grant DMS-2005279.
 
 {\sloppy
 \def\emph{\textit}
 \printbibliography[heading=bibintoc]
 \fussy
 }
+
+\Addresses
 
 \end{document}
 
