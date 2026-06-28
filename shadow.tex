@@ -2,7 +2,7 @@
 \usepackage{paper-en}
 \usepackage{hyperref}
 
-\def\thetitle{Shadow isoperimetry}
+\def\thetitle{An isoperimetric inequality for mean shadow}
 \def\theauthors{Roman Karasev, Anton Petrunin, and Alexander Plakhov}
 
 \hypersetup{colorlinks=true,
@@ -34,6 +34,7 @@ pdfauthor={\theauthors}
 \par\nopagebreak
  \textsc{Math. Dept. PSU, University Park, PA 16802, USA.}
   %\par\nopagebreak\textit{Email}: \texttt{petrunin@math.psu.edu}
+
 \medskip
 
 \noindent Alexander Plakhov,
@@ -120,18 +121,20 @@ In the case of equality, it is plausible that $E$ coincides with a ball up to me
 
 \medskip
 
-Note that $\fav_k K$ is proportional to the $L^1$-norm of the $\mathcal H^k$-measure of the orthogonal projection of $K$ onto a $k$-dimensional subspace of $\mathbb{R}^n$, viewed as a function of the projection direction. Let $\fav_k^p K$ denote the $L^p$-norm of the projection measure, $1 < p \le +\infty$. By Holder’s inequality, $\fav_k^p K$ is greater than or equal to $\fav_k K$ times a positive constant, and the inequality becomes the equality only when all projection measures coincide (up to a set of measure zero). As a result, we obtain the following corollary from Theorem \ref{thm:main}.
+Note that $\fav_k K$ is proportional to the $L^1$-norm of the $\mathcal H^k$-measure of the orthogonal projection of $K$ onto a $k$-dimensional subspace of $\mathbb{R}^n$, viewed as a function of the projection direction.
+Let $\fav_k^p K$ denote the $L^p$-norm of the projection measure, $1 < p \le +\infty$.
+By Hölder’s inequality, $\fav_k^p K$ is greater than or equal to $\fav_k K$ times a positive constant, and the inequality becomes the equality only when all projection measures coincide (up to a set of measure zero).
+As a result, we obtain the following corollary from Theorem~\ref{thm:main}.
 
 \begin{thm}{Corollary}\label{cor:Lp}
-Under the conditions of Corollary \ref{cor:borel},
+Under the conditions of Corollary~\ref{cor:borel},
 \[
 \mathcal H^n E= \mathcal H^n B
 \quad\Rightarrow\quad
 \fav_{n-1}^p E\ge \fav_{n-1}^p B.
 \]
-\end{thm}
 
-\medskip
+\end{thm}
 
 The problem was motivated by Newton's minimal resistance problem \cite{N}, which can be described as follows.
 Consider a body that moves in a rarefied medium of particles, so the mutual interaction of the particles can be neglected.
@@ -167,7 +170,7 @@ Some other results are known about invisibility in several directions or from se
 \emph{Almgren's frontier} $\cont K$ of a set $K\subset \RR^n$ will be defined
 as the intersection of its boundary and the boundary of its convex hull $\conv K$.
 We observe that the outer normals to supporting hyperplanes to $\conv K$ at points in $\cont K$ constitute the whole sphere.
-Further, by monotonicity of mean shadow area with respect to inclusion, we have $\fav_{n-1}(\cont K)\le \fav_{n-1}K$.
+Further, by monotonicity of mean shadow area with respect to inclusion, we have $\fav_{n-1}(\cont K)\z\le \fav_{n-1}K$.
 
 Now let us assume that $K$ is a counterexample.
 Using the two observations above, we find a point $p\in \cont K$ so that chopping $K$ in a small neighborhood of $p$ can produce a worse counterexample.
@@ -295,7 +298,7 @@ Note that $\cont K_s$ is the set of points $x\in \partial(\conv K_s)=\partial (\
 
 Let us compare $\mathcal H^{n-1}(\cont K_s)$ and $\mathcal H^{n-1}(\cont K)$ using the Crofton formula;
 namely, if $X$ lies in the boundary of a convex set, then $\mathcal H^{n-1} X$ is the integral of the number of points in $X\cap \ell$ over straight lines $\ell$.
-Almost any line $\ell$ either does not intersect $\partial(\conv K)$ or intersects it in two smooth points of $\partial(\conv K)$.
+Almost every line $\ell$ either does not intersect $\partial(\conv K)$ or intersects it in two smooth points of $\partial(\conv K)$.
 Consider only such lines, there are the following cases:
 
 Case 1: $\ell$ has no intersection with $\conv K$.
@@ -423,21 +426,13 @@ Applying Lemma~\ref{lem:variation} to $C$ and $p$ provided by Lemma~\ref{lem:sup
 \[
 s_\delta(K')>s_\delta(K).\leqno({*})
 \]
-Indeed, we know that
-\[
-\mathcal H^n K-\mathcal H^n K'< \left( \frac{n\cdot \omega_n}{(n-1)\cdot\omega_{n-1}\cdot \kappa(K)}+\eps\right)\cdot (\fav_{n-1}K-\fav_{n-1}K').
-\]
-Noting that $\kappa(K)=\tfrac{\omega_{n-1}^{1/(n-1)}}{\fav_{n-1}K^{1/(n-1)}}$, we transform this into
-\[
-\mathcal H^n K-\mathcal H^n K'< \left( \frac{n\cdot \omega_n\cdot \fav_{n-1}(K)^{1/(n-1)}}{(n-1)\omega_{n-1}^{n/(n-1)}}+\eps\right)\cdot (\fav_{n-1}K-\fav_{n-1}K').
-\]
-%and applying the definition of $c_n$:
-% $c_n=\frac{\omega_n}{\omega_{n-1}^{n/(n-1)}}$
-%\[
-%\mathcal H^n K-\mathcal H^n K'< \left( c_n\frac{n}{(n-1)}\fav_{n-1}K^{1/(n-1)}+\eps \right)\cdot (\fav_{n-1}K-\fav_{n-1}K').
-%\]
-Note that $\mathcal H^n B=\tfrac{\omega_{n}}{\kappa(K)^{n}}=\tfrac{\omega_n\cdot \fav_{n-1}(K)^{n/(n-1)}}{\omega_{n-1}^{n/(n-1)}}$.
-Considering the derivatives of $s_\delta(K)$ as a function of $\mathcal H^n K$ and $\fav_{n-1}K$, one observes that
+Indeed, since $\mathcal H^n B=\tfrac{\omega_{n}}{\kappa(K)^{n}}=\tfrac{\omega_n\cdot \fav_{n-1}(K)^{n/(n-1)}}{\omega_{n-1}^{n/(n-1)}}$, we have
+\begin{align*}
+\mathcal H^n K-\mathcal H^n K'&< \left( \frac{n\cdot \omega_n}{(n-1)\cdot\omega_{n-1}\cdot \kappa(K)}+\eps\right)\cdot (\fav_{n-1}K-\fav_{n-1}K')=
+\\
+&=\left( \frac{n\cdot \omega_n\cdot \fav_{n-1}(K)^{1/(n-1)}}{(n-1)\omega_{n-1}^{n/(n-1)}}+\eps\right)\cdot (\fav_{n-1}K-\fav_{n-1}K').
+\end{align*}
+Taking the derivatives of $s_\delta(K)$ as a function of $\mathcal H^n K$ and $\fav_{n-1}K$, we get
 \[\frac{\partial s_\delta(K)}{\partial\mathcal H^nK} = 1,
 \qquad
 \frac{\partial s_\delta(K)}{\partial \fav_{n-1} K} = -(1+\delta)\cdot \frac{n\cdot\omega_n}{(n-1)\cdot\omega_{n-1}^{n/(n-1)}} \cdot \fav_{n-1}(K)^{1/(n-1)}.\]
@@ -459,7 +454,7 @@ But the above argument applied to $M$ in place of $K$ contradicts the minimality
 Now assume that equality holds for $K$.
 After subtracting a set of volume zero we can assume that nonempty intersections of $K$ with open sets have positive volume.
 After that we need to show that $K$ is congruent to $B$.
-If $\partial K\supset \partial(\conv K)$, then it follows from the equality case in the standard isoperimetric inequality.
+If $\partial K\z\supset \partial(\conv K)$, then it follows from the equality case in the standard isoperimetric inequality.
 Otherwise, repeating the above argument with $\delta=0$ instead of $\delta>0$ and taking into account the second part of \ref{lem:support}, we produce a compact subset $K'\subset K$ that contradicts the already proved inequality and arrive at a contradiction.
 \end{proof}
 
@@ -483,7 +478,7 @@ This proves the second part.
 
 \section{2-dimensional case}\label{sec:2D}
 
-Here we outline a more elementary proof of \ref{thm:main} in the 2-dimensional case.
+Here we outline a more elementary proof of Theorem~\ref{thm:main} in the 2-dimensional case.
 Note that $\fav_1(K)$ is the average projection length; we will call it the Favard length.
 
 \begin{proof}[Sketch of 2-dimensional case of \ref{thm:main}]
@@ -517,7 +512,7 @@ By the same compactness argument, after passing to a subsequence we may assume t
 Then we replace $K_k^{(\ell)}$ with $K_\infty^{(\ell)} \z+ c_k^{(\ell)}$ keeping the area and the limit $\lim\limits_{k\to\infty}\fav_1(K_k)$.
 After these manipulations every distance $\dist(K_k^{(\ell)}, K_k^{(\ell')})$ tends to infinity when $\ell\neq\ell'$.
 This means that $\fav_1(K_k)$ tends to the sum $\sum_{\ell} \fav_1(K_\infty^{(\ell)})$.
-But placing the same sets $K_\infty^{(\ell)}$ in arbitrary fixed position makes average projection length of their union strictly smaller than $\sum_{\ell} \fav_1(K_\infty^{(\ell)})$ because of non-trivial overlap of their projections.
+But placing the same sets $K_\infty^{(\ell)}$ in arbitrary fixed position makes the average projection length of their union strictly smaller than $\sum_{\ell} \fav_1(K_\infty^{(\ell)})$ because of non-trivial overlap of their projections.
 Hence $\sum_{\ell} \fav_1(K_\infty^{(\ell)})$ cannot be equal to $\inf \fav_1K$ over unions of $N$ convex sets and the case of non-connected $G$ is impossible.
 
 Applying a variational argument similar to our main proof, we see that $\conv K$ has $C^1$-smooth boundary and $\cont K$ is a finite collection of circular arcs of radius
@@ -549,7 +544,10 @@ However, the problem in this class has already been solved.
 \end{proof}
 
 \parbf{Acknowledgments.}
-Anton Petunin was partially supported by the National Science Foundation grant DMS-2005279. Roman Karasev's research was funded by the state assignment 1.1.1-0029/25 of Ministry of Science and Higher Education of the Russian Federation for IITP RAS. The work of Alexander Plakhov was partially supported by CIDMA through the Portuguese Foundation for Science and Technology (FCT), grants UID/4106/2025 and UID/PRR/4106/2025.
+We were partially supported by the following grants:
+Roman Karasev by the state assignment 1.1.1-0029/25 of Ministry of Science and Higher Education of the Russian Federation for IITP RAS;
+Anton Petrunin by the National Science Foundation grant DMS-2005279;
+Alexander Plakhov by CIDMA through the Portuguese Foundation for Science and Technology (FCT), grants UID/4106/2025 and UID/PRR/4106/2025.
 
 {\sloppy
 \def\emph{\textit}
